@@ -13,9 +13,35 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            keyAlias 'my_small'
+            keyPassword 'my_small.jks'
+            storePassword 'my_small.jks'
+            storeFile file('keystore/my_small.jks')
+        }
+        debug {
+            keyAlias 'my_small'
+            keyPassword 'my_small.jks'
+            storePassword 'my_small.jks'
+            storeFile file('keystore/my_small.jks')
+        }
+    }
     buildTypes {
         release {
+            versionNameSuffix ' (Release)'
             minifyEnabled false
+            debuggable false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            versionNameSuffix ' (Debug)'
+            minifyEnabled false
+            debuggable true
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
