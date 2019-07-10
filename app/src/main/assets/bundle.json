@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "bundles": [
+    {
+      "uri": "main",
+      "pkg": "com.laka.appmain"
+    },
+    {
+      "uri": "user",
+      "pkg": "com.laka.appuser",
+      "rules": {
+        "setting":"SettingActivity"
+      }
+    }
+  ]
+}

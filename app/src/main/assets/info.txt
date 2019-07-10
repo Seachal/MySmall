@@ -1,0 +1,6 @@
+bundle.json 路由配置说明
+（1）、uri 用于区分不同插件，相同插件的 uri 配置相同，仅仅通过 uri 跳转到其他模块的页面，进入的是其他模块页面的主入口（清单文件配置）
+如果插件的清单文件中没有配置主入口，则匹配规则插件总的 MainActivity ，如果不存在，则匹配失败。
+
+（2）、通过 rules 配置非主入口Activity，rules 是一个对象，里面元素 key:value 结构，key为跳转需要使用到的key，value为具体的activity名称
+如："setting":"SettingActivity" ，跳转的方式为：Small.openUri("user/setting", MainActivity.this);（user为所属的uri）
