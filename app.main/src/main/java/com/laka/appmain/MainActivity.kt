@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.laka.appglide.GlideActivity
 
 /**
  * @Author:summer
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         when (view?.id) {
             R.id.btn1 -> {
                 startActivity(Intent(this, MessageActivity::class.java))
+            }
+            R.id.btn2 -> {
+                startActivity(Intent(this, GlideActivity::class.java))
             }
             else -> {
 

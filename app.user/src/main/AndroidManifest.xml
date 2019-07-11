@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingActivity"/>
+        <activity android:name="com.laka.appglide.GlideActivity"/>
     </application>
 
 </manifest>
