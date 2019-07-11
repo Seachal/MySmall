@@ -5,7 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import net.wequick.small.Small;
-
+/**
+ * @Author:summer
+ * @Date:2019/7/11
+ * @Description:宿主app入口
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

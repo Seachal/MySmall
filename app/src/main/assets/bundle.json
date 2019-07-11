@@ -3,13 +3,16 @@
   "bundles": [
     {
       "uri": "main",
-      "pkg": "com.laka.appmain"
+      "pkg": "com.laka.appmain",
+      "rules": {
+        "message": "MessageActivity"
+      }
     },
     {
       "uri": "user",
       "pkg": "com.laka.appuser",
       "rules": {
-        "setting":"SettingActivity"
+        "setting": "SettingActivity"
       }
     },
     {

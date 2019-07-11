@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.main/app.main.iml" filepath="$PROJECT_DIR$/app.main/app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.user/app.user.iml" filepath="$PROJECT_DIR$/app.user/app.user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib.base/lib.base.iml" filepath="$PROJECT_DIR$/lib.base/lib.base.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.style/lib.style.iml" filepath="$PROJECT_DIR$/lib.style/lib.style.iml" />
     </modules>
   </component>
