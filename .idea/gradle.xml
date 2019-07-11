@@ -13,7 +13,11 @@
             <option value="$PROJECT_DIR$/app.main" />
             <option value="$PROJECT_DIR$/app.user" />
             <option value="$PROJECT_DIR$/lib.base" />
+            <option value="$PROJECT_DIR$/lib.config" />
+            <option value="$PROJECT_DIR$/lib.router" />
             <option value="$PROJECT_DIR$/lib.style" />
+            <option value="$PROJECT_DIR$/lib.ui" />
+            <option value="$PROJECT_DIR$/lib.utils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

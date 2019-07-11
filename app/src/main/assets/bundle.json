@@ -17,6 +17,21 @@
     },
     {
       "pkg": "com.laka.libstyle"
+    },
+    {
+      "pkg": "com.laka.libbase"
+    },
+    {
+      "pkg": "com.laka.libutils"
+    },
+    {
+      "pkg": "com.laka.librouter"
+    },
+    {
+      "pkg": "com.laka.libui"
+    },
+    {
+      "pkg": "com.laka.libconfig"
     }
   ]
 }
