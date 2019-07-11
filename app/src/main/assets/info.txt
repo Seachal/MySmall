@@ -4,3 +4,5 @@ bundle.json 路由配置说明
 
 （2）、通过 rules 配置非主入口Activity，rules 是一个对象，里面元素 key:value 结构，key为跳转需要使用到的key，value为具体的activity名称
 如："setting":"SettingActivity" ，跳转的方式为：Small.openUri("user/setting", MainActivity.this);（user为所属的uri）
+
+（3）、单独使用一个 {"pkg":""} 的方式配置 lib （lib配置可以不要uri）

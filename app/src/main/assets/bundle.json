@@ -11,6 +11,9 @@
       "rules": {
         "setting":"SettingActivity"
       }
+    },
+    {
+      "pkg": "com.laka.libstyle"
     }
   ]
 }

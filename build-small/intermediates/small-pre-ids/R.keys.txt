@@ -669,6 +669,9 @@ int id barrier
 int id beginning
 int id blocking
 int id bottom
+int id btn1
+int id btn2
+int id btn3
 int id buttonPanel
 int id center
 int id center_horizontal
@@ -1755,6 +1758,4 @@ int[] styleable ViewStubCompat
 int styleable ViewStubCompat_android_id
 int styleable ViewStubCompat_android_inflatedId
 int styleable ViewStubCompat_android_layout
-int id btn1
-int id btn2
-int id btn3
+int drawable test
