@@ -220,7 +220,7 @@ public final class LogUtils {
      */
     public static void error(Exception exception) {
         if (ApplicationUtils.isDebug()) {
-            Logger.e(exception);
+            Logger.e(exception.getMessage());
         }
     }
 
