@@ -8,8 +8,8 @@ import android.content.IntentFilter;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.laka.androidlib.net.thread.ThreadManager;
-import com.laka.androidlib.util.ContextUtil;
+import com.laka.libutils.ContextUtil;
+import com.laka.libutils.thread.ThreadManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,11 +30,10 @@ import java.net.URLConnection;
 import java.util.Enumeration;
 
 /**
- * @Author:Rayman
- * @Date:2018/7/24
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:网络状态变化工具类，嵌入到Activity里面
  */
-
 public class NetWorkHelper {
 
     private final String TAG = this.getClass().getSimpleName();

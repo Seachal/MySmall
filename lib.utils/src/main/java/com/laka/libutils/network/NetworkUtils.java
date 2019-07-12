@@ -7,14 +7,11 @@ import android.telephony.TelephonyManager;
 
 import com.laka.libutils.app.ApplicationUtils;
 
-
 /**
- * @ClassName: NetworkUtils
- * @Description: 判断网络状态
- * @Author: chuan
- * @Date: 09/01/2018
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:
  */
-
 public class NetworkUtils {
     private final static String NETWORK_NAME_UNKNOWN = "unknown";
     private final static String NETWORK_NAME_WIFI = "wifi";
