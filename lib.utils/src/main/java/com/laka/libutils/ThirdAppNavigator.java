@@ -1,8 +1,9 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.content.Intent;
 
-import com.laka.androidlib.util.toast.ToastHelper;
+import com.laka.libutils.app.ApplicationUtils;
+import com.laka.libutils.toast.ToastHelper;
 
 /**
  * @Author:Rayman

@@ -1,16 +1,14 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 /**
- * @ClassName:
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:
- * @Author: chuan
- * @Date: 07/03/2018
  */
-
 public class ListUtils {
     private ListUtils() {
         throw new UnsupportedOperationException("do not instantiate me , please.");
@@ -36,7 +34,7 @@ public class ListUtils {
      *
      * @return
      */
-    public static boolean isListDataValid(List targetList, int position) {
+    public static boolean isListValidPosition(List targetList, int position) {
         boolean isDataNotEmpty = ListUtils.isNotEmpty(targetList);
         boolean isValidIndex = false;
         if (isDataNotEmpty) {

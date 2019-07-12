@@ -1,16 +1,17 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
+import com.laka.libutils.app.ApplicationUtils;
+
 /**
- * @Author:Rayman
- * @Date:2019/2/22
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:Android包管理器
  */
-
 public class PackageUtils {
 
     /**
@@ -68,9 +69,4 @@ public class PackageUtils {
         return installed;
     }
 
-    public static String getAppPackage() {
-        @SuppressLint("ServiceCast")
-        ActivityManager activityManager = (ActivityManager) ApplicationUtils.getApplication().getSystemService(Activity.ACTIVITY_SERVICE);
-        return activityManager.getCurrentActivity().getPackageName();
-    }
 }

@@ -1,22 +1,21 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 
-import com.laka.androidlib.eventbus.EventBusManager;
-import com.laka.androidlib.eventbus.BaseEventName;
 
 /**
- * @Author:Rayman
- * @Date:2018/5/31
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:
  */
-
 public class SoftKeyBoardUtil {
 
     // 用于监听软键盘的打开状态
@@ -36,7 +35,6 @@ public class SoftKeyBoardUtil {
         if (imm != null) {
             return imm.showSoftInput(view, 0);
         }
-
         return false;
     }
 
@@ -51,7 +49,6 @@ public class SoftKeyBoardUtil {
         if (imm != null) {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
-
     }
 
     /**
@@ -76,7 +73,6 @@ public class SoftKeyBoardUtil {
         if (imm != null && view != null) {
             imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
-
     }
 
     /**
@@ -90,7 +86,6 @@ public class SoftKeyBoardUtil {
         final View decorView = activity.getWindow().getDecorView();
         decorView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             int previousKeyboardHeight = -1;
-
             @Override
             public void onGlobalLayout() {
                 Rect rect = new Rect();
@@ -114,15 +109,11 @@ public class SoftKeyBoardUtil {
      * 附带一个bool值。
      */
     public static void observeSoftKeyboard(Activity activity) {
-
         // 注册监听时，修改状态
         sSoftKeyBoardOpened = false;
-
         sDecorView = activity.getWindow().getDecorView();
-
         sOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
             int previousKeyboardHeight = -1;
-
             @Override
             public void onGlobalLayout() {
                 Rect rect = new Rect();
@@ -131,28 +122,23 @@ public class SoftKeyBoardUtil {
                 int height = sDecorView.getHeight();
                 int keyboardHeight = height - displayHeight;
                 if (previousKeyboardHeight != keyboardHeight) {
-
                     boolean visible = (double) displayHeight / height < 0.8;
-
                     if (visible != sSoftKeyBoardOpened) {
                         sSoftKeyBoardOpened = visible;
-                        EventBusManager.postEvent(BaseEventName.SOFT_KEYBOARD_CHANGED, visible);
                     }
                 }
                 previousKeyboardHeight = height;
             }
         };
-
         sDecorView.getViewTreeObserver().addOnGlobalLayoutListener(sOnGlobalLayoutListener);
     }
 
     /**
      * 取消注册监听键盘变化
      */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public static void unObserveSoftKeyboard() {
-
         if (sDecorView != null) {
-
             if (sOnGlobalLayoutListener != null) {
                 sDecorView.getViewTreeObserver().removeOnGlobalLayoutListener(sOnGlobalLayoutListener);
             }

@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -12,11 +12,10 @@ import java.util.zip.InflaterInputStream;
 import static java.util.zip.Deflater.DEFAULT_COMPRESSION;
 
 /**
- * @Author:Rayman
- * @Date:2019/3/13
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:压缩工具类类
  */
-
 public class ZlibUtils {
 
     /**
@@ -27,10 +26,8 @@ public class ZlibUtils {
      */
     public static byte[] compress(byte[] data) {
         byte[] output = new byte[0];
-
         // 不带头
         Deflater compresser = new Deflater(DEFAULT_COMPRESSION, true);
-
         compresser.reset();
         compresser.setInput(data);
         compresser.finish();
@@ -64,12 +61,9 @@ public class ZlibUtils {
      */
     public static void compress(byte[] data, OutputStream os) {
         DeflaterOutputStream dos = new DeflaterOutputStream(os);
-
         try {
             dos.write(data, 0, data.length);
-
             dos.finish();
-
             dos.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -84,12 +78,10 @@ public class ZlibUtils {
      */
     public static byte[] decompress(byte[] data) {
         byte[] output = new byte[0];
-
         // 不带头
         Inflater decompresser = new Inflater(true);
         decompresser.reset();
         decompresser.setInput(data);
-
         ByteArrayOutputStream o = new ByteArrayOutputStream(data.length);
         try {
             byte[] buf = new byte[1024];
@@ -108,7 +100,6 @@ public class ZlibUtils {
                 e.printStackTrace();
             }
         }
-
         decompresser.end();
         return output;
     }
@@ -125,11 +116,9 @@ public class ZlibUtils {
         try {
             int i = 1024;
             byte[] buf = new byte[i];
-
             while ((i = iis.read(buf, 0, i)) > 0) {
                 o.write(buf, 0, i);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }

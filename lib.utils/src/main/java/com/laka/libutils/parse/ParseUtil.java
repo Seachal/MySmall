@@ -1,33 +1,25 @@
-package com.laka.androidlib.net.utils.parse;
+package com.laka.libutils.parse;
 
-
-import com.laka.androidlib.net.response.BaseBean;
-import com.laka.androidlib.net.response.Callback;
-
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-
 /**
- * @Author Lyf
- * @CreateTime 2018/2/26
- * @Description
- **/
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:
+ */
 public class ParseUtil {
 
     private static IParseUtil INSTANCE;
 
     private static IParseUtil getParseUtil() {
-
         if (INSTANCE == null) {
             synchronized (ParseUtil.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new GsonUtil();
+                    //INSTANCE = new GsonUtil();
                 }
             }
         }
-
         return INSTANCE;
     }
 
@@ -41,12 +33,6 @@ public class ParseUtil {
 
     public static String toJson(Object object) {
         return getParseUtil().toJson(object);
-    }
-
-    public static <T> T parseJson(String json, Callback<T> responseCallback) {
-        return parseJson(json, (((ParameterizedType)
-                (responseCallback.getClass().getGenericInterfaces())[0])
-                .getActualTypeArguments()[0]));
     }
 
     public static <T> List<T> parseJsonToList(String json, String key, final Class<T> clazz) {

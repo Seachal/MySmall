@@ -1,8 +1,6 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.text.TextUtils;
-
-import com.laka.androidlib.R;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -12,10 +10,9 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
- * @ClassName: DateUtils
- * @Description: 用于处理日期时间的工具类
- * @Author: chuan
- * @Date: 26/03/2018
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:用于处理日期时间的工具类
  */
 public class DateUtils {
 

@@ -1,9 +1,8 @@
-package com.laka.androidlib.util;
+package com.laka.librouter;
 
 import android.app.Activity;
 import android.app.Application;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +11,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 /**
- * @Author:Rayman
- * @Date:2018/12/19
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:基础路由类，封装常规的跳转方式
  */
-
 public class BaseActivityNavigator {
 
     /**
@@ -37,13 +35,10 @@ public class BaseActivityNavigator {
      * @param bundle
      */
     public static void startActivity(@NonNull Context context, Class<?> cls, @Nullable Bundle bundle) {
-
         Intent intent = new Intent(context, cls);
-
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-
         // 假若Application、Service类型的context，需要加上new_task
         if (context instanceof Application || context instanceof Service) {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

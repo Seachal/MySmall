@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lib.utils</string>
+    <string name="picker_year">年</string>
+    <string name="picker_month">月</string>
+    <string name="picker_day">日</string>
+    <string name="time_yesterday">昨天</string>
 </resources>

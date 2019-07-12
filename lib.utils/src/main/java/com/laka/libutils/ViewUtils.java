@@ -1,20 +1,19 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.app.Activity;
-import android.view.inputmethod.InputMethodManager;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
-import android.content.Context;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
+
 import java.lang.reflect.Field;
 
 /**
- * @ClassName: ViewUtils
- * @Description: View工具类
- * @Author: chuan
- * @Date: 23/01/2018
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:View工具类
  */
-
 public final class ViewUtils {
 
     private ViewUtils() {
@@ -33,11 +32,9 @@ public final class ViewUtils {
         if (params != null) {
             width = params.width;
         }
-
         if (width <= 0) {
             width = getImageViewFieldValue(imageView, "mMaxWidth");
         }
-
         return width;
     }
 
@@ -49,16 +46,13 @@ public final class ViewUtils {
      */
     public static int getHeight(@NonNull ImageView imageView) {
         int height = 0;
-
         ViewGroup.LayoutParams params = imageView.getLayoutParams();
         if (params != null) {
             height = params.height;
         }
-
         if (height <= 0) {
             height = getImageViewFieldValue(imageView, "mMaxHeight");
         }
-
         return height;
     }
 
@@ -71,7 +65,6 @@ public final class ViewUtils {
      */
     public static int getImageViewFieldValue(Object object, String fieldName) {
         int value = 0;
-
         try {
             Field e = ImageView.class.getDeclaredField(fieldName);
             e.setAccessible(true);
@@ -82,7 +75,6 @@ public final class ViewUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return value;
     }
 
@@ -90,20 +82,15 @@ public final class ViewUtils {
      * 隐藏软键盘
      */
     public static void hideInputMethod( Activity activity) {
-
         try{
             if (activity != null) {
-
                 InputMethodManager imm = (InputMethodManager) activity
                         .getSystemService(Context.INPUT_METHOD_SERVICE);
                 if (imm.isActive() && activity.getCurrentFocus() != null) {
-                    imm.hideSoftInputFromWindow(activity.getCurrentFocus()
-                            .getWindowToken(), 0);
+                    imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
                 }
             }
-
         }catch (Exception e) {
-
         }
     }
 

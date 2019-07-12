@@ -1,18 +1,17 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author:Rayman
- * @Date:2018/6/28
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:防抖工具类
  */
-
 public class MultiClickUtil {
 
     protected static final int CLICK_INTERVAL = 500;
-    private static long firClickTime = 0;
+    private static long mPreClickTime = 0;
     private static Map<Integer, Long> clickTimeMap = new HashMap<>();
 
     /**
@@ -23,27 +22,15 @@ public class MultiClickUtil {
      */
     public static boolean checkClickValid(int viewId) {
         boolean isValid;
-        firClickTime = clickTimeMap.get(viewId) == null ? firClickTime : clickTimeMap.get(viewId);
-        if (System.currentTimeMillis() - firClickTime > CLICK_INTERVAL) {
-            firClickTime = System.currentTimeMillis();
+        mPreClickTime = clickTimeMap.get(viewId) == null ? mPreClickTime : clickTimeMap.get(viewId);
+        if (System.currentTimeMillis() - mPreClickTime > CLICK_INTERVAL) {
+            mPreClickTime = System.currentTimeMillis();
             isValid = true;
         } else {
-            firClickTime = System.currentTimeMillis();
             isValid = false;
         }
-        clickTimeMap.put(viewId, firClickTime);
+        clickTimeMap.put(viewId, mPreClickTime);
         return isValid;
     }
 
-    public static boolean checkClickValid() {
-        boolean isValid;
-        if (System.currentTimeMillis() - firClickTime > CLICK_INTERVAL) {
-            firClickTime = System.currentTimeMillis();
-            isValid = true;
-        } else {
-            firClickTime = System.currentTimeMillis();
-            isValid = false;
-        }
-        return isValid;
-    }
 }

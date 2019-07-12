@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,12 +7,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @ClassName: MD5Utils
- * @Description: MD5加解密
- * @Author: chuan
- * @Date: 09/01/2018
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:MD5Utils
  */
-
 public final class MD5Utils {
     private static final char HEX_DIGITS[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
             'A', 'B', 'C', 'D', 'E', 'F'};
@@ -42,7 +40,6 @@ public final class MD5Utils {
      * @param file 需要转化的文件
      * @return null 或转化成功的string
      */
-
     public static String getFileMD5(File file) {
         if (!file.isFile()) {
             return null;
@@ -76,7 +73,6 @@ public final class MD5Utils {
         try {
             // 创建加密对象
             MessageDigest digest = MessageDigest.getInstance("md5");
-
             // 调用加密对象的方法，加密的动作已经完成
             byte[] bs = digest.digest(pwd.getBytes());
             // 接下来，我们要对加密后的结果，进行优化，按照mysql的优化思路走

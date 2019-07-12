@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.app.Service;
 import android.content.Context;
@@ -9,11 +9,10 @@ import android.hardware.SensorManager;
 import android.os.Vibrator;
 
 /**
- * @Author:Rayman
- * @Date:2019/2/28
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:摇一摇工具类
  */
-
 public class ShakeUtils implements SensorEventListener {
 
     private SensorManager mSensorManager = null;

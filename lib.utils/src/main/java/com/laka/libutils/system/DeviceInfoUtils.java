@@ -3,6 +3,7 @@ package com.laka.libutils.system;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -10,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import com.laka.libutils.app.ApplicationUtils;
 import com.laka.libutils.permission.PermissionUtils;
 
 import java.util.UUID;

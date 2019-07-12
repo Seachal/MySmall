@@ -1,8 +1,10 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -12,21 +14,18 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 
-import com.laka.androidlib.net.utils.Util;
-
 import java.io.File;
 import java.util.ArrayList;
 
 import me.shaohui.advancedluban.Luban;
 import me.shaohui.advancedluban.OnCompressListener;
 
-/**
- * @ClassName:
- * @Description: 拍照工具类，所有照片存放于列表中，列表中只有一个数据，最近一次拍照存放的照片
- * @Author: summer
- * @Date: 12/01/2019
- */
 
+/**
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:拍照工具类，所有照片存放于列表中，列表中只有一个数据，最近一次拍照存放的照片的路径
+ */
 public class PhotoHelper {
 
     private static final String PHOTO_SAVE_NAME = "laka_regou";
@@ -34,13 +33,11 @@ public class PhotoHelper {
     private static final String PICTURE_FORMAT_PNG = ".png";
     private static final int POST_IMAGE_MAX_SIZE = 1024; // 单位 kb
     // 从相册拿图片 = 1 ， 从相册拿视频 = 2 ， 录视频 = 3， 裁剪图片 = 4 ， 拍照 = 5 , 素材库 = 6
-    public static final int ALBUM_PHOTO = 1, ALBUM_VIDEO = 2, RECORD_VIDEO = 3,
-            CUTS_PHOTO = 4, TAKE_PHOTO = 5, MATERIAL_STORE = 6;
+    public static final int ALBUM_PHOTO = 1, ALBUM_VIDEO = 2, RECORD_VIDEO = 3, CUTS_PHOTO = 4, TAKE_PHOTO = 5, MATERIAL_STORE = 6;
     private static ArrayList<File> mPhotoList = new ArrayList<>();
     private DecodeResultCallback mCallback;
     private int mRequestCode;
     private Activity mActivity;
-
 
     public PhotoHelper(Activity activity) {
         mActivity = activity;
@@ -53,7 +50,7 @@ public class PhotoHelper {
         this.mRequestCode = requestCode;
         this.mCallback = callback;
         if (mRequestCode == ALBUM_PHOTO) { // 从相册拿照片
-            String realPath = Util.getRealPathFromURI(mActivity, data.getData());
+            String realPath = getRealPathFromURI(mActivity, data.getData());
             compressBitmap(mActivity, realPath, callback);
         } else if (mRequestCode == ALBUM_VIDEO) { // 从相册拿视频
 
@@ -68,7 +65,6 @@ public class PhotoHelper {
 
         }
     }
-
 
     public void takePhoto(Activity activity, int requestCode) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -106,16 +102,39 @@ public class PhotoHelper {
         if (Build.VERSION.SDK_INT <= 19) {
             intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
-
         } else {
             intent = new Intent(
                     Intent.ACTION_PICK,
-                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         }
         try {
             activity.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException e) {
             result = false;
+        }
+        return result;
+    }
+
+    /**
+     * uri 转换为 path
+     */
+    public static String getRealPathFromURI(Context context, Uri contentURI) {
+        String result;
+        try {
+            Cursor cursor = context.getContentResolver().query(contentURI, null, null, null, null);
+            if (cursor == null) { // Source is Dropbox or other similar local file path
+                result = contentURI.getPath();
+            } else {
+                cursor.moveToFirst();
+                int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                if (idx == -1) {
+                    return null;
+                }
+                result = cursor.getString(idx);
+                cursor.close();
+            }
+        } catch (Exception e) {
+            return "";
         }
         return result;
     }
@@ -160,12 +179,10 @@ public class PhotoHelper {
                 });
     }
 
-
     public interface DecodeResultCallback {
         void onDecodeResultSuccess(Bitmap bitmap, String path, long size, long duration);
 
         void onDecodeResultFail(String message, int requestCode);
     }
-
 
 }

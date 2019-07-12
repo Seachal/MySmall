@@ -1,14 +1,12 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.text.TextUtils;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 
 /**
  * @Author:Rayman

@@ -1,15 +1,14 @@
-package com.laka.androidlib.util;
+package com.laka.libutils.toast;
 
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
 /**
- * @Author:Rayman
- * @Date:2019/3/20
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:监听当前App的一些状态，例如前后台的切换
  */
-
 public class AppStatusTracker implements Application.ActivityLifecycleCallbacks {
 
     private static int refCount = 0;

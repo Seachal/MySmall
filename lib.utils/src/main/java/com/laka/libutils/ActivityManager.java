@@ -1,22 +1,19 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.ArrayMap;
-
-import com.laka.androidlib.constant.AppConstant;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author Lyf
- * @CreateTime 2018/3/7
- * @Description Activity栈管理
- **/
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:Activity栈管理
+ */
 public class ActivityManager {
 
     private List<Activity> mActivities = new ArrayList<>();

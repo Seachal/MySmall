@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.content.Context;
 import android.os.Environment;
@@ -76,5 +76,4 @@ public class CacheUtil {
             }
         }
     }
-
 }

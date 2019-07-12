@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

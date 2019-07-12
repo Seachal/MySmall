@@ -1,14 +1,13 @@
-package com.laka.androidlib.net.utils.parse;
+package com.laka.libutils.parse;
 
 import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Map;
 
 /**
- * @Author Lyf
- * @CreateTime 2018/2/26
- * @Description
- **/
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:
+ */
 public interface IParseUtil {
 
     /**

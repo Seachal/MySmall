@@ -1,13 +1,12 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.text.TextUtils;
 
 /**
- * @Author:Rayman
- * @Date:2019/1/19
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:业务逻辑常用字符串转换工具
  */
-
 public class StringConvertUtils {
 
     /**

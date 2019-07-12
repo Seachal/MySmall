@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.util.Base64;
 
@@ -18,15 +18,12 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * @ClassName: EncryptUtils
- * @Description: Encrypt加密工具
- * @Author: chuan
- * @Date: 09/01/2018
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:Encrypt加密工具
  */
-
 public class EncryptUtils {
     private static final String AES = "AES";
-
     private static final String RSA = "RSA/ECB/NoPadding";
 
     private EncryptUtils() {
@@ -55,7 +52,6 @@ public class EncryptUtils {
         } else {
             toEncrypt = content;
         }
-
         return aes(toEncrypt, key, Cipher.ENCRYPT_MODE);
     }
 
@@ -93,11 +89,9 @@ public class EncryptUtils {
      */
     public static PublicKey getPublicKey(String key) {
         try {
-
             byte[] keyBytes = Base64.decode(key, Base64.DEFAULT);
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-
             return keyFactory.generatePublic(keySpec);
         } catch (NoSuchAlgorithmException
                 | InvalidKeySpecException e) {
@@ -127,7 +121,6 @@ public class EncryptUtils {
         }
     }
 
-
     public static byte[] encryptMD5(String data) throws UnsupportedEncodingException {
         return encryptMD5(data.getBytes("utf-8"));
     }
@@ -155,7 +148,6 @@ public class EncryptUtils {
         return result.getBytes("utf-8");
     }
 
-
     public static String byte2hex(byte[] bytes) {
         if (bytes == null) {
             return "";
@@ -170,7 +162,6 @@ public class EncryptUtils {
         }
         return sign.toString();
     }
-
 
     public static String test(String str) {
         MessageDigest md5 = null;
@@ -196,6 +187,5 @@ public class EncryptUtils {
         }
         return hexValue.toString();
     }
-
 
 }

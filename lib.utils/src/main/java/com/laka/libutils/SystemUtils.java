@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.app.Application;
 import android.content.ClipData;
@@ -13,18 +13,12 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.laka.androidlib.BuildConfig;
-import com.laka.androidlib.util.screen.ScreenUtils;
-import com.laka.androidlib.util.toast.ToastHelper;
+import com.laka.libutils.app.ApplicationUtils;
+import com.laka.libutils.screen.ScreenUtils;
+import com.laka.libutils.toast.ToastHelper;
 
 import java.io.File;
 import java.lang.reflect.Field;
-
-/**
- * @Author Lyf
- * @CreateTime 2018/4/26
- * @Description 系统信息
- **/
 
 public class SystemUtils {
 
@@ -63,7 +57,6 @@ public class SystemUtils {
 
     // 小米或华为的tokencode
     public String target;
-
 
     /**
      * 获取版本号---文案版本
@@ -146,7 +139,6 @@ public class SystemUtils {
      * @return
      */
     public static int getAttrsIndex(AttributeSet attrs, int index) {
-
         //获取AttributeSet中所有的XML属性的数量
         int count = attrs.getAttributeCount();
         //遍历AttributeSet中的XML属性
@@ -160,29 +152,21 @@ public class SystemUtils {
         return -1;
     }
 
-
     public static boolean getAttributeBooleanValue(AttributeSet attrs, int attrResId, boolean defaultValue) {
-
         int index = getAttrsIndex(attrs, attrResId);
-
         if (index != -1) {
             return attrs.getAttributeBooleanValue(index, defaultValue);
         }
-
         return defaultValue;
     }
 
     public static int getAttributeResourceValue(AttributeSet attrs, int attrResId, int defaultValue) {
-
         int index = getAttrsIndex(attrs, attrResId);
-
         if (index != -1) {
             return attrs.getAttributeResourceValue(index, defaultValue);
         }
-
         return defaultValue;
     }
-
 
     /**
      * 复制内容到剪切板
@@ -190,7 +174,6 @@ public class SystemUtils {
      * @param strToCopy 要被复制的内容
      */
     public static void copyToClipboard(String strToCopy) {
-
         ClipboardManager clipboard = (ClipboardManager)
                 ApplicationUtils.getApplication()
                         .getSystemService(Context.CLIPBOARD_SERVICE);
@@ -201,17 +184,12 @@ public class SystemUtils {
     }
 
     public static Bitmap getBitmapByView(View view) {
-
         int h = view.getMeasuredHeight();
-
         Bitmap bitmap = null;
-
         int maxHeight = ScreenUtils.getScreenHeight() * 2;
-
         if (h > maxHeight) {
             h = maxHeight;
         }
-
         // 创建对应大小的bitmap
         bitmap = Bitmap.createBitmap(view.getWidth(), h,
                 Bitmap.Config.RGB_565);
@@ -222,12 +200,10 @@ public class SystemUtils {
 
     public static void notifyPhotoChanged(Context context, File file) {
         try {
-
             Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             Uri uri = Uri.fromFile(file);
             intent.setData(uri);
             context.sendBroadcast(intent);
-
         } catch (Exception e) {
 
         }
@@ -237,7 +213,6 @@ public class SystemUtils {
      * 打开桌面
      */
     public static void openSystemLuncher(Context context) {
-
         Intent home = new Intent(Intent.ACTION_MAIN);
         home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         home.addCategory(Intent.CATEGORY_HOME);

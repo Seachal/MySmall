@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -15,8 +15,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-
-import com.laka.androidlib.R;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

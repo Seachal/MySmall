@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,8 +8,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * @Author:Rayman
- * @Date:2019/1/19
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:Base64转换工具
  */
 public class Base64Utils {
@@ -27,10 +27,8 @@ public class Base64Utils {
             if (bitmap != null) {
                 baos = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-
                 baos.flush();
                 baos.close();
-
                 byte[] bitmapBytes = baos.toByteArray();
                 result = Base64.encodeToString(bitmapBytes, Base64.DEFAULT);
             }

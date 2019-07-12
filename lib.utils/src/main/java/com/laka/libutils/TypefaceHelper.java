@@ -1,16 +1,14 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.util.ArrayMap;
 
 /**
- * @ClassName: TypefaceHelper
- * @Description: 存储程序已经加载的Typeface
- * @Author: chuan
- * @Date: 10/01/2018
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:存储程序已经加载的Typeface
  */
-
 public final class TypefaceHelper {
     private static TypefaceHelper mTypefaceHelper;
     private ArrayMap<String, Typeface> mTypefaceMap;

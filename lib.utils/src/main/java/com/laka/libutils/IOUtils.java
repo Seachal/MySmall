@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -18,19 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ClassName: IOUtils
- * @Description: 文件io操作工具类
- * @Author: chuan
- * @Date: 19/01/2018
- */
-
-/**
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:文件io操作工具类
  * IOUtils,对io流进行操作。
  * 采用NIO和IO的接口封装。
  * NIO接口读写更加迅速，但对行，字符的处理不方便。
  * IO可以对字节，字符，等一系列进行处理。
  */
-
 public final class IOUtils {
 
     private IOUtils() {
@@ -47,19 +42,15 @@ public final class IOUtils {
         if (is == null) {
             return null;
         }
-
         byte[] res = null;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
         try {
             byte[] bytes = new byte[1024 * 4];
             int readNum;
             if ((readNum = is.read(bytes)) > 0) {
                 baos.write(bytes, 0, readNum);
             }
-
             res = baos.toByteArray();
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -70,7 +61,6 @@ public final class IOUtils {
                 e.printStackTrace();
             }
         }
-
         return res;
     }
 
@@ -84,22 +74,17 @@ public final class IOUtils {
         if (file == null || !file.exists() || file.isDirectory()) {
             return null;
         }
-
         byte[] res = null;
         InputStream is = null;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
         try {
             is = new FileInputStream(file);
-
             byte[] bytes = new byte[1024 * 4];
             int readNum;
             if ((readNum = is.read(bytes)) > 0) {
                 baos.write(bytes, 0, readNum);
             }
-
             res = baos.toByteArray();
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -107,13 +92,11 @@ public final class IOUtils {
                 if (is != null) {
                     is.close();
                 }
-
                 baos.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
         return res;
     }
 
@@ -127,18 +110,14 @@ public final class IOUtils {
         if (file == null || !file.exists() || file.isDirectory()) {
             return null;
         }
-
         List<String> strList = readToList(file);
         if (strList == null || strList.size() == 0) {
             return null;
         }
-
         StringBuilder sBuilder = new StringBuilder();
-
         for (String s : strList) {
             sBuilder.append(s).append("\n");
         }
-
         return sBuilder.toString();
     }
 
@@ -152,23 +131,18 @@ public final class IOUtils {
         if (file == null || !file.exists() || file.isDirectory()) {
             return null;
         }
-
         InputStream is = null;
         InputStreamReader isr = null;
         BufferedReader bReader = null;
-
         List<String> strList = new ArrayList<>();
-
         try {
             is = new FileInputStream(file);
             isr = new InputStreamReader(is);
             bReader = new BufferedReader(isr);
-
             String line;
             while ((line = bReader.readLine()) != null) {
                 strList.add(line);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -176,11 +150,9 @@ public final class IOUtils {
                 if (is != null) {
                     is.close();
                 }
-
                 if (isr != null) {
                     isr.close();
                 }
-
                 if (bReader != null) {
                     bReader.close();
                 }
@@ -201,15 +173,12 @@ public final class IOUtils {
         if (file == null || !file.exists() || file.isDirectory()) {
             return null;
         }
-
         List<Object> objectList = new ArrayList<>();
         InputStream is = null;
         ObjectInputStream ois = null;
-
         try {
             is = new FileInputStream(file);
             ois = new ObjectInputStream(is);
-
             Object o;
             while ((o = ois.readObject()) != null) {
                 objectList.add(o);
@@ -221,7 +190,6 @@ public final class IOUtils {
                 if (is != null) {
                     is.close();
                 }
-
                 if (ois != null) {
                     ois.close();
                 }
@@ -255,25 +223,19 @@ public final class IOUtils {
                 || bytes == null || bytes.length == 0) {
             return false;
         }
-
         boolean result;
-
         ByteBuffer buffer = ByteBuffer.allocate(bytes.length);
         buffer.clear();
         buffer.put(bytes);
         buffer.flip();
-
         FileOutputStream fos = null;
         FileChannel fc = null;
-
         try {
             fos = new FileOutputStream(file);
             fc = fos.getChannel();
-
             while (buffer.hasRemaining()) {
                 fc.write(buffer);
             }
-
             result = true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -283,7 +245,6 @@ public final class IOUtils {
                 if (fos != null) {
                     fos.close();
                 }
-
                 if (fc != null) {
                     fc.close();
                 }
@@ -291,7 +252,6 @@ public final class IOUtils {
                 e.printStackTrace();
             }
         }
-
         return result;
     }
 
@@ -307,21 +267,16 @@ public final class IOUtils {
                 || object == null || object.length == 0) {
             return false;
         }
-
         OutputStream os = null;
         ObjectOutputStream oos = null;
-
         boolean result;
         try {
             os = new FileOutputStream(file);
             oos = new ObjectOutputStream(os);
-
             for (Serializable o : object) {
                 oos.writeObject(o);
             }
-
             oos.flush();
-
             result = true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -331,7 +286,6 @@ public final class IOUtils {
                 if (os != null) {
                     os.close();
                 }
-
                 if (oos != null) {
                     oos.close();
                 }
@@ -339,7 +293,6 @@ public final class IOUtils {
                 e.printStackTrace();
             }
         }
-
         return result;
     }
 

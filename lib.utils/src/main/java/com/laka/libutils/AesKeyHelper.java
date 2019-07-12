@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import java.security.NoSuchAlgorithmException;
 
@@ -6,11 +6,10 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
 /**
- * @Author:Rayman
- * @Date:2019/2/14
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description:AesKey帮助类
  */
-
 public class AesKeyHelper {
 
     public static byte[] createRandomAesKey(int length) {

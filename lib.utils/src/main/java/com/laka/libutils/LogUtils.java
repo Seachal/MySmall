@@ -1,18 +1,17 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.util.Log;
 
+import com.laka.libutils.app.ApplicationUtils;
 import com.orhanobut.logger.Logger;
 
 import java.util.Locale;
 
 /**
- * @ClassName: LogUtils
+ * @Author:summer
+ * @Date:2019/7/12
  * @Description: log工具类
- * @Author: chuan
- * @Date: 08/01/2018
  */
-
 public final class LogUtils {
 
     private final static String TAG = LogUtils.class.getSimpleName();
@@ -311,19 +310,15 @@ public final class LogUtils {
     private static String buildMessage(String format, Object... args) {
         String msg = (args == null) ? format : String.format(Locale.US, format, args);
         StackTraceElement[] traces = new Throwable().fillInStackTrace().getStackTrace();
-
         String caller;
-
         if (traces == null || traces.length == 0) {
             caller = "<unknown>";
         } else {
             String callingClass = traces[0].getClassName();
             callingClass = callingClass.substring(callingClass.lastIndexOf('.') + 1);
             callingClass = callingClass.substring(callingClass.lastIndexOf('$') + 1);
-
             caller = callingClass + "." + traces[0].getMethodName();
         }
-
         return String.format(Locale.US, "[%d] %s: %s",
                 Thread.currentThread().getId(), caller, msg);
     }

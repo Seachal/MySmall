@@ -1,4 +1,4 @@
-package com.laka.androidlib.util;
+package com.laka.libutils;
 
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -17,12 +17,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * @Author Lyf
- * @CreateTime 2018/4/27
- * @Description 一些通用的UI设置，可以抽在这里面
- **/
+ * @Author:summer
+ * @Date:2019/7/12
+ * @Description:一些通用的UI设置，可以抽在这里面
+ */
 public class TextViewHelper {
-
 
     /**
      * 记录焦点
@@ -56,7 +55,6 @@ public class TextViewHelper {
 
     }
 
-
     /**
      * 限制输入框的最大值和小数点的位数
      *
@@ -66,18 +64,14 @@ public class TextViewHelper {
      */
     public static boolean limitEditText(EditText editText,
                                         String before, double max) {
-
         String text = editText.getText().toString().trim();
-
         if (text.length() > 0) {
-
             try {
                 if (Double.valueOf(text) > max) {
                     editText.setText(before);
                     editText.setSelection(before.length());
                     return true;
                 } else {
-
                     if (text.contains(".")) {
                         if (text.length() - text.indexOf(".") > 3) {
                             text = text.subSequence(0, text.indexOf(".") + 3).toString();
@@ -88,9 +82,7 @@ public class TextViewHelper {
                 }
             } catch (Exception e) {
             }
-
         }
-
         return false;
     }
 
@@ -101,13 +93,9 @@ public class TextViewHelper {
      *                 小数点的位数默认是2位
      */
     public static boolean limitEditText(EditText editText, String before) {
-
         String text = editText.getText().toString().trim();
-
         if (text.length() > 0) {
-
             try {
-
                 if (text.contains(".")) {
                     if (text.length() - text.indexOf(".") > 3) {
                         text = text.subSequence(0, text.indexOf(".") + 3).toString();
@@ -115,12 +103,9 @@ public class TextViewHelper {
                         editText.setSelection(text.length());
                     }
                 }
-
             } catch (Exception e) {
             }
-
         }
-
         return false;
     }
 
@@ -154,7 +139,6 @@ public class TextViewHelper {
         } else {
             log("view can't be null");
         }
-
     }
 
     /**
@@ -162,7 +146,6 @@ public class TextViewHelper {
      * 比如，EditText
      */
     public static String getText(@NonNull TextView textView) {
-
         if (textView != null) {
             return textView.getText().toString();
         } else {
@@ -175,14 +158,11 @@ public class TextViewHelper {
      * 设置Span
      */
     public static void setSpan(Builder builder) {
-
         Spannable span = new SpannableString(builder.getText());
-
         if (builder.getEnd() == 0) {
             // 如果没有设置结束位置，就修改整个。
             builder.setEnd(builder.getText().length());
         }
-
         if (builder.isSetSize()) {
             span.setSpan(new AbsoluteSizeSpan(builder.getTextSize(), true), builder.getStart(), builder.getEnd(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
@@ -198,24 +178,20 @@ public class TextViewHelper {
         if (builder.isUnderLine()) {
             span.setSpan(new UnderlineSpan(), builder.getStart(), builder.getEnd(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
-
         builder.getTextView().setText(span);
     }
 
     public static final class Builder {
-
         private int textSize;
         private int textColor;
         private int start;
         private int end;
-
         // 是否加粗
         private boolean isBold;
         // 是否删除线
         private boolean isStrikeTrough;
         // 是否下划线
         private boolean isUnderLine;
-
         private String text;
         private TextView textView;
         /*
@@ -318,7 +294,6 @@ public class TextViewHelper {
             return isUnderLine;
         }
     }
-
 
     private static void log(String msg) {
         LogUtils.error(msg);
