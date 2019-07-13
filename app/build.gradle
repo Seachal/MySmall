@@ -54,8 +54,8 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:1.0.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    compile rootProject.ext.dependencies["appcompat-v7"]
-    compile rootProject.ext.dependencies["ConstraintLayout"]
+    compile project(':lib.ui')
+    compile project(':lib.utils')
 }
 repositories {
     mavenCentral()

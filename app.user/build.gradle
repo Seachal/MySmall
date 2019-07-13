@@ -30,6 +30,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile rootProject.ext.dependencies["appcompat-v7"]
-    compile rootProject.ext.dependencies["ConstraintLayout"]
+    compile project(':lib.ui')
+    compile project(':lib.utils')
+    compile project(':lib.base')
+    compile project(':lib.config')
+    compile project(':lib.net')
+    compile project(':lib.router')
 }
