@@ -12,7 +12,7 @@ def RxCacheConvert = "0.0.3"
 
 // Retrofit + OkHttp等网络版本
 def RetrofitVersion = "2.6.0"
-def OkHttpVersion = "4.0.1"
+def OkHttpVersion = "3.10.0"
 def GsonVersion = "2.8.5"
 def DaggerVersion = "2.4"
 

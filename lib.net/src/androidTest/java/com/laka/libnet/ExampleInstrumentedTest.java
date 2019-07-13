@@ -1,4 +1,4 @@
-package com.laka.appnet;
+package com.laka.libnet;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.laka.appnet.test", appContext.getPackageName());
+        assertEquals("com.laka.libnet.test", appContext.getPackageName());
     }
 }

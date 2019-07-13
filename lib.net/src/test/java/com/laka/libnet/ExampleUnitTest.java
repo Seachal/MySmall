@@ -1,4 +1,4 @@
-package com.laka.appnet;
+package com.laka.libnet;
 
 import org.junit.Test;
 

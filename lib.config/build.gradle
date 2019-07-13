@@ -29,5 +29,18 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["MultiDex"]
+    // 网路请求
+    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["retrofitAdapter"]
+    compile rootProject.ext.dependencies["retrofitGsonConverter"]
+    compile rootProject.ext.dependencies["okhttp"]
+    compile rootProject.ext.dependencies["okhttp3Interceptor"]
+    // 事件流控制依赖
+    compile rootProject.ext.dependencies["EventBus"]
+    compile rootProject.ext.dependencies["RxJava"]
+    compile rootProject.ext.dependencies["RxAndroid"]
+    compile rootProject.ext.dependencies["RxLifeCycle"]
+    compile rootProject.ext.dependencies["RxLifeCycleComponents"]
 
 }

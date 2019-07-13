@@ -32,6 +32,9 @@
     },
     {
       "pkg": "com.laka.libconfig"
+    },
+    {
+      "pkg": "com.laka.libnet"
     }
   ]
 }

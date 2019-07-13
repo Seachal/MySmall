@@ -8,7 +8,7 @@ android {
     defaultConfig {
         applicationId "com.laka.appmain"
         minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion  rootProject.ext.android.targetSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -31,4 +31,8 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["ConstraintLayout"]
+
+    compile rootProject.ext.dependencies["okhttp"]
+    compile rootProject.ext.dependencies["okhttp3Interceptor"]
+
 }
