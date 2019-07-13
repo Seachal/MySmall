@@ -141,18 +141,15 @@ public final class StringUtils {
      */
     public static float parseFloat(String str, float defValue) {
         float result = defValue;
-
         if (isTrimEmpty(str) || !TextUtils.isDigitsOnly(str)) {
             return result;
         }
-
         try {
             result = Float.parseFloat(str);
         } catch (Exception e) {
             e.printStackTrace();
             result = defValue;
         }
-
         return result;
     }
 
@@ -175,18 +172,15 @@ public final class StringUtils {
      */
     public static double parseDouble(String str, long defValue) {
         double result = defValue;
-
         if (isTrimEmpty(str) || !TextUtils.isDigitsOnly(str)) {
             return result;
         }
-
         try {
             result = Double.parseDouble(str);
         } catch (Exception e) {
             e.printStackTrace();
             result = defValue;
         }
-
         return result;
     }
 
@@ -209,18 +203,15 @@ public final class StringUtils {
      */
     public static long parseLong(String str, long defValue) {
         long result = defValue;
-
         if (isTrimEmpty(str) || !TextUtils.isDigitsOnly(str)) {
             return result;
         }
-
         try {
             result = Long.parseLong(str);
         } catch (Exception e) {
             e.printStackTrace();
             result = defValue;
         }
-
         return result;
     }
 

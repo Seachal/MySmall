@@ -98,7 +98,6 @@ public class ActivityManager {
         return activityArrayMap.get(activity.getSimpleName()) != null;
     }
 
-
     /**
      * 根据Class类型获取Activity
      *
@@ -113,7 +112,6 @@ public class ActivityManager {
         }
         return null;
     }
-
 
     /**
      * @param index
@@ -161,16 +159,13 @@ public class ActivityManager {
         activity.finish();
     }
 
-
     /**
      * 弹出activity到
      *
      * @param cs
      */
     public void popUntilActivity(Class... cs) {
-
         List<Activity> list = new ArrayList<>();
-
         for (int i = mActivities.size() - 1; i >= 0; i--) {
             Activity ac = mActivities.get(i);
             boolean isTop = false;
@@ -215,11 +210,9 @@ public class ActivityManager {
      * @param className
      */
     public static boolean isActivityOnStackTop(Class className) {
-
         if (className == null) {
             throw new RuntimeException("className should not be null!");
         }
-
         Activity lastActivity = getInstance().getCurrentActivity();
         return lastActivity != null && className.getSimpleName()
                 .equals(lastActivity.getClass().getSimpleName());
@@ -236,7 +229,6 @@ public class ActivityManager {
         return mActivities;
     }
 
-    public void clearActivities() {
+    public void clearActivities() {}
 
-    }
 }

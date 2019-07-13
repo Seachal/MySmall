@@ -26,7 +26,6 @@ public final class TypefaceHelper {
                 }
             }
         }
-
         return mTypefaceHelper;
     }
 
