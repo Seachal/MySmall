@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
+import com.laka.libutils.LogUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -58,21 +59,27 @@ public class CollectionDefaultTypeAdapterFactory implements TypeAdapterFactory {
 
         @Override
         public Collection<E> read(JsonReader in) throws IOException {
-            if (in.peek() == JsonToken.NULL) {
-                in.nextNull();
-                return constructor.construct();//这里做了修改，原本返回null，现在返回空集合
-            }
-
-            Collection<E> collection = constructor.construct();
-            in.beginArray();
-            while (in.hasNext()) {
-                E instance = elementTypeAdapter.read(in);
-                //item 不为null才添加到集合
-                if (instance != null) {
-                    collection.add(instance);
+            Collection<E> collection = null;
+            try {
+                if (in.peek() == JsonToken.NULL) {
+                    in.nextNull();
+                    return constructor.construct();//这里做了修改，原本返回null，现在返回空集合
                 }
+                collection = constructor.construct();
+                in.beginArray();
+                while (in.hasNext()) {
+                    E instance = elementTypeAdapter.read(in);
+                    //item 不为null才添加到集合
+                    if (instance != null) {
+                        collection.add(instance);
+                    }
+                }
+                in.endArray();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (collection == null) collection = constructor.construct();
             }
-            in.endArray();
             return collection;
         }
 

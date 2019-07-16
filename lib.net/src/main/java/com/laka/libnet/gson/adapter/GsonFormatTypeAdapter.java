@@ -26,6 +26,8 @@ public class GsonFormatTypeAdapter implements TypeAdapterFactory {
             return (TypeAdapter<T>) new FloatDefaultFormatAdapter();
         } else if (rawType == String.class) {
             return (TypeAdapter<T>) new StringDefaultFormatAdapter();
+        } else if (rawType == Boolean.class || rawType == boolean.class) {
+            return (TypeAdapter<T>) new BooleanDefaultFormatAdapter();
         } else {
             return null;//返回null，由其他Factory创建TypeAdapter
         }
