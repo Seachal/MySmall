@@ -5,4 +5,4 @@ package com.laka.libnet.test
  * @Date:2019/7/16
  * @Description:
  */
-data class TestObject(val name: String, val list: ArrayList<apple>)
+data class apple(val price: Double)

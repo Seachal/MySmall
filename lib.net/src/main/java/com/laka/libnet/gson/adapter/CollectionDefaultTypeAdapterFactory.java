@@ -63,16 +63,14 @@ public class CollectionDefaultTypeAdapterFactory implements TypeAdapterFactory {
                 return constructor.construct();//这里做了修改，原本返回null，现在返回空集合
             }
 
-            if (in.peek() == JsonToken.STRING) {
-                in.nextNull();
-                return constructor.construct();//如果是空字符串，返回空集合
-            }
-
             Collection<E> collection = constructor.construct();
             in.beginArray();
             while (in.hasNext()) {
                 E instance = elementTypeAdapter.read(in);
-                collection.add(instance);
+                //item 不为null才添加到集合
+                if (instance != null) {
+                    collection.add(instance);
+                }
             }
             in.endArray();
             return collection;
