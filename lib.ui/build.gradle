@@ -29,6 +29,7 @@ dependencies {
     })
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["ConstraintLayout"]
+    annotationProcessor rootProject.ext.dependencies["glideCompiler"]
     compile rootProject.ext.dependencies["glide"]
     compile project(':lib.utils')
 }
