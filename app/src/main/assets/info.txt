@@ -32,6 +32,9 @@
     桌面快捷方式图标
 
 
+（8）、lib 之间可以 依赖，但是libA 依赖 libB ，libA不能使用 libB的资源文件，如果使用了，gradlew buildLib -q 编译不通过
+
+
 
 
 二、插件划分规则
@@ -45,7 +48,13 @@
 
 
 
+三、gradle 操作指令
 
+（1）、清除公共库  gradlew cleanLib -q
+
+（2）、编译公共库  gradlew buildLib -q -Dbundle.arch=x86
+
+（3）、编译业务单元  gradlew buildBundle -q -Dbundle.arch=x86/armeabi
 
 
 

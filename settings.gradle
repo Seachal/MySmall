@@ -1,1 +1,1 @@
-include ':app', ':app.main', ':app.user', ':lib.style', ':lib.base', ':app+glide', ':lib.utils', ':lib.router', ':lib.ui', ':lib.config', ':lib.net'
+include ':app', ':app.main', ':app.user', ':lib.base', ':app+glide', ':lib.utils', ':lib.router', ':lib.config', ':lib.net', ':lib.ui'

@@ -1,0 +1,1 @@
+（1）、app.xxx 插件不直接依赖 lib.utils、lib.style，其他的 lib 比如 lib.net、lib.ui等会直接依赖 lib.utils、lib.style 库，app.xxx 等插件模块依赖 lib.net、lib.ui；

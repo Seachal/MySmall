@@ -8,7 +8,6 @@ import com.laka.libnet.anno.AnnotationExclusion;
 import com.laka.libnet.gson.factory.CollectionDefaultTypeAdapterFactory;
 import com.laka.libnet.gson.adapter.GsonFormatTypeAdapter;
 import com.laka.libnet.gson.factory.DeserializeActionAdapterFactory;
-import com.laka.libutils.LogUtils;
 
 import org.json.JSONObject;
 
@@ -150,7 +149,7 @@ public class GsonUtils implements IParseUtil {
             };
             return sGson.fromJson(json, type);
         } catch (Exception e) {
-            LogUtils.log("parse=" + e.toString());
+//            LogUtils.log("parse=" + e.toString());
             return null;
         }
 

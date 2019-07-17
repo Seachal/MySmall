@@ -4,7 +4,6 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.laka.libutils.LogUtils;
 
 import java.io.IOException;
 
@@ -45,7 +44,7 @@ public class LongDefaultFormatAdapter extends TypeAdapter<Long> {
             }
             //LogUtils.info(GsonUtils.TAG, "进入Long格式转换类：" + value);
         } catch (Exception e) {
-            LogUtils.error(e);
+            e.printStackTrace();
             value = 0L;
         }
         return value;

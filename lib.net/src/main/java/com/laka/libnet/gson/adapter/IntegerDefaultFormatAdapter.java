@@ -1,11 +1,11 @@
 package com.laka.libnet.gson.adapter;
 
+import android.text.TextUtils;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.laka.libutils.LogUtils;
-import com.laka.libutils.NumberUtils;
 
 import java.io.IOException;
 
@@ -40,15 +40,19 @@ public class IntegerDefaultFormatAdapter extends TypeAdapter<Integer> {
                 value = 0;
             } else if (in.peek() == JsonToken.STRING) {
                 String jsonStr = in.nextString();
-                value = NumberUtils.isNumber(jsonStr) ? Integer.parseInt(jsonStr) : 0;
+                value = isNumber(jsonStr) ? Integer.parseInt(jsonStr) : 0;
             } else {
                 value = in.nextInt();
             }
-            // LogUtils.info(GsonUtils.TAG, "进入Integer格式转换类：" + value);
         } catch (Exception e) {
-            LogUtils.error(e);
+            e.printStackTrace();
             value = 0;
         }
         return value;
     }
+
+    public static boolean isNumber(String string) {
+        return TextUtils.isDigitsOnly(string);
+    }
+
 }

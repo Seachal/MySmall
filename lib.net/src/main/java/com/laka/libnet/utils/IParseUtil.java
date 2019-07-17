@@ -8,7 +8,7 @@ import java.util.List;
  * @CreateTime 2018/2/26
  * @Description
  **/
-public interface IParseUtil {
+public interface    IParseUtil {
 
     /**
      * Converts a json string into a T bean.

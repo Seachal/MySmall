@@ -11,7 +11,6 @@
       <module fileurl="file://$PROJECT_DIR$/lib.config/lib.config.iml" filepath="$PROJECT_DIR$/lib.config/lib.config.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.net/lib.net.iml" filepath="$PROJECT_DIR$/lib.net/lib.net.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.router/lib.router.iml" filepath="$PROJECT_DIR$/lib.router/lib.router.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib.style/lib.style.iml" filepath="$PROJECT_DIR$/lib.style/lib.style.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.ui/lib.ui.iml" filepath="$PROJECT_DIR$/lib.ui/lib.ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.utils/lib.utils.iml" filepath="$PROJECT_DIR$/lib.utils/lib.utils.iml" />
     </modules>

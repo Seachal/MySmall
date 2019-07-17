@@ -4,7 +4,6 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.laka.libutils.LogUtils;
 
 import java.io.IOException;
 
@@ -14,6 +13,8 @@ import java.io.IOException;
  * @Description:
  */
 public class BooleanDefaultFormatAdapter extends TypeAdapter<Boolean> {
+
+    private static final String TAG = "BooleanDefaultFormatAda";
 
     @Override
     public void write(JsonWriter out, Boolean value) throws IOException {
@@ -41,7 +42,7 @@ public class BooleanDefaultFormatAdapter extends TypeAdapter<Boolean> {
                 value = in.nextBoolean();
             }
         } catch (Exception e) {
-            LogUtils.error(e);
+            e.printStackTrace();
             value = false;
         }
         return value;

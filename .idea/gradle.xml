@@ -16,7 +16,6 @@
             <option value="$PROJECT_DIR$/lib.config" />
             <option value="$PROJECT_DIR$/lib.net" />
             <option value="$PROJECT_DIR$/lib.router" />
-            <option value="$PROJECT_DIR$/lib.style" />
             <option value="$PROJECT_DIR$/lib.ui" />
             <option value="$PROJECT_DIR$/lib.utils" />
           </set>

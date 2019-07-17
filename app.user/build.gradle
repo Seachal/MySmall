@@ -24,16 +24,14 @@ android {
 }
 
 dependencies {
-    compile project(':lib.style')
     testCompile 'junit:junit:4.12'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':lib.ui')
-    compile project(':lib.utils')
     compile project(':lib.base')
     compile project(':lib.config')
     compile project(':lib.net')
     compile project(':lib.router')
+    compile project(':lib.ui')
 }

@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.laka.libnet.R
 import com.laka.libnet.utils.GsonUtils
-import com.laka.libutils.LogUtils
-
 /**
  * @Author:summer
  * @Date:2019/7/16
@@ -30,7 +28,6 @@ class TestActivity : AppCompatActivity() {
     private fun onTestGson() {
         try {
             val fromList1 = GsonUtils.getDefaultGson().fromJson("{\"name\":\"\",\"list\":[null,{\"price\":10.0}]}", TestObject::class.java)
-            LogUtils.info("fromList1-----$fromList1")
         } catch (e: Exception) {
             e.printStackTrace()
         }

@@ -16,6 +16,9 @@
         <activity android:name=".MessageActivity" />
         <activity android:name="com.laka.appglide.GlideActivity" />
         <activity android:name="com.laka.libnet.test.TestActivity">
+
+        </activity>
+        <activity android:name=".TestMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
