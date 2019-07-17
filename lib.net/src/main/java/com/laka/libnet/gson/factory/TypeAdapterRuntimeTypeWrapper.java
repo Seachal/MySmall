@@ -1,4 +1,4 @@
-package com.laka.libnet.gson.adapter;
+package com.laka.libnet.gson.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;

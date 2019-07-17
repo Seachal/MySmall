@@ -1,4 +1,4 @@
-package com.laka.libnet.gson.adapter;
+package com.laka.libnet.gson.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
@@ -10,7 +10,6 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.laka.libutils.LogUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Type;

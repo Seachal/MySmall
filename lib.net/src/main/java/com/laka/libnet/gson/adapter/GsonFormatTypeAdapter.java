@@ -14,7 +14,6 @@ public class GsonFormatTypeAdapter implements TypeAdapterFactory {
 
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-        //LogUtils.info("输出当前Gson对象的Type：" + type.getType() + "\nrawType：" + type.getRawType());
         Class<T> rawType = (Class<T>) type.getRawType();
         if (rawType == Integer.class || rawType == int.class) {
             return (TypeAdapter<T>) new IntegerDefaultFormatAdapter();

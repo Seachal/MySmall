@@ -28,8 +28,12 @@ class TestActivity : AppCompatActivity() {
     }
 
     private fun onTestGson() {
-        val fromList1 = GsonUtils.getDefaultGson().fromJson("{\"name\":\"xhh\",\"list\":[null,{\"price\":10.0}]}", TestObject::class.java)
-        LogUtils.info("fromList1-----$fromList1")
+        try {
+            val fromList1 = GsonUtils.getDefaultGson().fromJson("{\"name\":\"\",\"list\":[null,{\"price\":10.0}]}", TestObject::class.java)
+            LogUtils.info("fromList1-----$fromList1")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 
