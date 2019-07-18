@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -26,7 +27,7 @@ import java.util.List;
 public final class ApplicationUtils {
     @SuppressLint("StaticFieldLeak")
     private static Application sApplication;
-    private static boolean sDebug = BuildConfig.DEBUG;
+    private static Boolean sDebug = BuildConfig.DEBUG;
     public static List<Activity> activities = new LinkedList<>();
     //以下属性应用于整个应用程序，合理利用资源，减少资源浪费
     private static Context mContext;//上下文
@@ -74,12 +75,13 @@ public final class ApplicationUtils {
 
     /**
      * 初始化debug状态
-     *
-     * @param debug debug状态
      */
-    public static void initDebug(boolean debug) {
+    public static void initDebug() {
         if (verticallyIsInit()) {
-            sDebug = debug;
+            if (sDebug == null) {
+                sDebug = sApplication.getApplicationInfo() != null &&
+                        (sApplication.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+            }
         }
     }
 
@@ -91,7 +93,6 @@ public final class ApplicationUtils {
     public static boolean isDebug() {
         verticallyIsInit();
         return sDebug;
-
     }
 
     /**

@@ -1,0 +1,1 @@
+int layout activity_glide 0x50020000

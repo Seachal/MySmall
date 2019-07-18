@@ -41,6 +41,5 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["glideCompiler"]
     compile rootProject.ext.dependencies["glide"]
 
-    releaseCompile project(path:':lib.utils', configuration: 'release')
-    debugCompile project(path:':lib.utils', configuration: 'debug')
+    compile project(':lib.utils')
 }

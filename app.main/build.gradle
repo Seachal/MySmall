@@ -54,25 +54,26 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     //单纯使用 compile 依赖库，则 lib 编译方式默认使用 release，想要lib根据我们配置的构建方式
     //来构建，则使用一下方式添加 lib
-    releaseCompile project(path: ':lib.base', configuration: 'release')
-    debugCompile project(path: ':lib.base', configuration: 'debug')
-
-    releaseCompile project(path: ':lib.config', configuration: 'release')
-    debugCompile project(path: ':lib.config', configuration: 'debug')
-
-    releaseCompile project(path: ':lib.net', configuration: 'release')
-    debugCompile project(path: ':lib.net', configuration: 'debug')
-
-    releaseCompile project(path:':lib.router', configuration: 'release')
-    debugCompile project(path:':lib.router', configuration: 'debug')
-
-    releaseCompile project(path:':lib.ui', configuration: 'release')
-    debugCompile project(path:':lib.ui', configuration: 'debug')
-
-    releaseCompile project(path:':lib.utils', configuration: 'release')
-    debugCompile project(path:':lib.utils', configuration: 'debug')
-
+    //由于 small 的兼容性问题，无法使用一下方式来构建
+    //    releaseCompile project(path: ':lib.base', configuration: 'release')
+    //    debugCompile project(path: ':lib.base', configuration: 'debug')
+    //    releaseCompile project(path: ':lib.config', configuration: 'release')
+    //    debugCompile project(path: ':lib.config', configuration: 'debug')
+    //    releaseCompile project(path: ':lib.net', configuration: 'release')
+    //    debugCompile project(path: ':lib.net', configuration: 'debug')
+    //    releaseCompile project(path:':lib.router', configuration: 'release')
+    //    debugCompile project(path:':lib.router', configuration: 'debug')
+    //    releaseCompile project(path:':lib.ui', configuration: 'release')
+    //    debugCompile project(path:':lib.ui', configuration: 'debug')
+    //    releaseCompile project(path:':lib.utils', configuration: 'release')
+    //    debugCompile project(path:':lib.utils', configuration: 'debug')
+    compile project(':lib.base')
+    compile project(':lib.config')
+    compile project(':lib.net')
+    compile project(':lib.router')
+    compile project(':lib.ui')
+    compile project(':lib.utils')
+    compile project(':lib.commonsdk')
 }

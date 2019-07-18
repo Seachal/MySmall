@@ -1,1 +1,2 @@
 int layout activity_test 0x3d020000
+int layout activity_glide 0x3d020001

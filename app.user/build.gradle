@@ -55,23 +55,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-    releaseCompile project(path:':lib.base', configuration: 'release')
-    debugCompile project(path:':lib.base', configuration: 'debug')
-
-    releaseCompile project(path:':lib.config', configuration: 'release')
-    debugCompile project(path:':lib.config', configuration: 'debug')
-
-    releaseCompile project(path:':lib.net', configuration: 'release')
-    debugCompile project(path:':lib.net', configuration: 'debug')
-
-    releaseCompile project(path:':lib.router', configuration: 'release')
-    debugCompile project(path:':lib.router', configuration: 'debug')
-
-    releaseCompile project(path:':lib.ui', configuration: 'release')
-    debugCompile project(path:':lib.ui', configuration: 'debug')
-
-    releaseCompile project(path:':lib.utils', configuration: 'release')
-    debugCompile project(path:':lib.utils', configuration: 'debug')
-
+    compile project(':lib.base')
+    compile project(':lib.config')
+    compile project(':lib.net')
+    compile project(':lib.router')
+    compile project(':lib.ui')
+    compile project(':lib.utils')
+    compile project(':lib.commonsdk')
 }

@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app.main" />
             <option value="$PROJECT_DIR$/app.user" />
             <option value="$PROJECT_DIR$/lib.base" />
+            <option value="$PROJECT_DIR$/lib.commonsdk" />
             <option value="$PROJECT_DIR$/lib.config" />
             <option value="$PROJECT_DIR$/lib.net" />
             <option value="$PROJECT_DIR$/lib.router" />

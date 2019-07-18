@@ -67,11 +67,13 @@ int drawable bg_loading_common 0x31020001
 int drawable bg_photo_selector 0x31020002
 int drawable indicator_normal 0x31020003
 int drawable indicator_selected 0x31020004
+int drawable img_degault 0x31020005
 int layout dialog_common_confirm 0x31030000
 int layout dialog_common_loading 0x31030001
 int layout dialog_phone_select 0x31030002
 int layout mz_banner_effect_layout 0x31030003
 int layout mz_banner_normal_layout 0x31030004
+int layout activity_glide 0x31030005
 int anim dialog_enter_anim 0x31040000
 int anim dialog_exit_anim 0x31040001
 int dimen default_line_indicator_gap_width 0x31050000

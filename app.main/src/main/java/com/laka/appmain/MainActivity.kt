@@ -8,6 +8,7 @@ import android.view.View
 import com.laka.appglide.GlideActivity
 import com.laka.librouter.utils.IntentUtils
 import com.laka.libutils.LogUtils
+import com.laka.libutils.app.ApplicationUtils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 
@@ -34,8 +35,11 @@ class MainActivity : AppCompatActivity() {
             R.id.btn3 -> {
                 val value = IntentUtils.getStringExtra(intent, "key", "defaultValue")
                 LogUtils.info("value1------:$value-----:${BuildConfig.DEBUG}")
-                Log.i("value","value2------$value--------:${BuildConfig.DEBUG}")
-                Logger.i("value3------:$value-----:${BuildConfig.DEBUG}")
+                Log.i("value", "value2------$value--------:${BuildConfig.DEBUG}")
+                if (ApplicationUtils.isDebug2(this)) {
+                    Logger.i("value3------:$value-----:${BuildConfig.DEBUG}")
+                    Logger.i("value4------:$value-----:${BuildConfig.DEBUG}")
+                }
             }
             else -> {
 

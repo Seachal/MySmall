@@ -1,12 +1,9 @@
 package com.laka.librouter.utils;
 
 import android.content.Intent;
-import android.support.test.internal.util.LogUtil;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.laka.librouter.BuildConfig;
-import com.laka.libutils.LogUtils;
 
 /**
  * @Author:summer
