@@ -15,10 +15,19 @@ android {
 
     buildTypes {
         release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //提供非 release 外的构建模式
+    publishNonDefault true
 
 }
 

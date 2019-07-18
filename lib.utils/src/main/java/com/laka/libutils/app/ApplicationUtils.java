@@ -12,6 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 
 import com.laka.libutils.BuildConfig;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -38,6 +40,13 @@ public final class ApplicationUtils {
         throw new UnsupportedOperationException("do not instantiate me , please.");
     }
 
+    private static boolean verticallyIsInit() {
+        if (sApplication == null) {
+            throw new RuntimeException("ApplicationUtils has not yet been initialized");
+        }
+        return true;
+    }
+
     public static void init(@NonNull Application application) {
         sApplication = application;
         mContext = sApplication;
@@ -45,6 +54,8 @@ public final class ApplicationUtils {
         mMainThread = Thread.currentThread();
         mMainThreadId = android.os.Process.myTid();
         mHandler = new Handler();
+        //Logger初始化
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     /**
@@ -54,10 +65,10 @@ public final class ApplicationUtils {
      * @throws NullPointerException 当Application为空时
      */
     public static Application getApplication() {
+        verticallyIsInit();
         if (sApplication == null) {
             throw new NullPointerException("application is null ,call init() please");
         }
-
         return sApplication;
     }
 
@@ -67,7 +78,9 @@ public final class ApplicationUtils {
      * @param debug debug状态
      */
     public static void initDebug(boolean debug) {
-        sDebug = debug;
+        if (verticallyIsInit()) {
+            sDebug = debug;
+        }
     }
 
     /**
@@ -76,7 +89,9 @@ public final class ApplicationUtils {
      * @return true ，debug状态；false ，非debug状态
      */
     public static boolean isDebug() {
+        verticallyIsInit();
         return sDebug;
+
     }
 
     /**
@@ -84,6 +99,7 @@ public final class ApplicationUtils {
      * 一般用于“退出程序”功能
      */
     public static void exit() {
+        verticallyIsInit();
         for (Activity activity : activities) {
             activity.finish();
         }
@@ -93,6 +109,7 @@ public final class ApplicationUtils {
      * 重启当前应用
      */
     public static void restart() {
+        verticallyIsInit();
         Intent intent = mContext.getPackageManager().getLaunchIntentForPackage(mContext.getPackageName());
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         mContext.startActivity(intent);
@@ -103,6 +120,7 @@ public final class ApplicationUtils {
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public static boolean isVaildActivity(Activity activity) {
+        verticallyIsInit();
         if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
             return false;
         }
@@ -110,42 +128,52 @@ public final class ApplicationUtils {
     }
 
     public static Context getContext() {
+        verticallyIsInit();
         return mContext;
     }
 
     public static void setContext(Context context) {
+        verticallyIsInit();
         mContext = context;
     }
 
     public static Thread getMainThread() {
+        verticallyIsInit();
         return mMainThread;
     }
 
     public static void setMainThread(Thread mainThread) {
+        verticallyIsInit();
         mMainThread = mainThread;
     }
 
     public static long getMainThreadId() {
+        verticallyIsInit();
         return mMainThreadId;
     }
 
     public static void setMainThreadId(long mainThreadId) {
+        verticallyIsInit();
         mMainThreadId = mainThreadId;
     }
 
     public static Looper getMainThreadLooper() {
+        verticallyIsInit();
         return mMainLooper;
     }
 
     public static void setMainThreadLooper(Looper looper) {
+        verticallyIsInit();
         mMainLooper = looper;
     }
 
     public static Handler getMainHandler() {
+        verticallyIsInit();
         return mHandler;
     }
 
     public static void setMainHandler(Handler handler) {
+        verticallyIsInit();
         mHandler = handler;
     }
 

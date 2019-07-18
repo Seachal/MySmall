@@ -6,6 +6,7 @@ android {
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
+        //插件在开发阶段可作为独立app进行调试，所以可在这里更改 appId为正式的appId，不然一些三方SDK没法测试
         applicationId "com.laka.appmain"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -14,9 +15,35 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    //插件在开发阶段可作为独立app进行调试，所以可在这里更改 签名 为正式的 签名，不然一些三方SDK没法测试
+    signingConfigs {
+        release {
+            keyAlias 'my_small'
+            keyPassword 'my_small.jks'
+            storePassword 'my_small.jks'
+            storeFile file('keystore/my_small.jks')
+        }
+        debug {
+            keyAlias 'my_small'
+            keyPassword 'my_small.jks'
+            storePassword 'my_small.jks'
+            storeFile file('keystore/my_small.jks')
+        }
+    }
     buildTypes {
         release {
+            versionNameSuffix ' (Release)'
             minifyEnabled false
+            debuggable false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            versionNameSuffix ' (Debug)'
+            minifyEnabled false
+            debuggable true
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -26,11 +53,26 @@ android {
 dependencies {
     testCompile 'junit:junit:4.12'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile 'com.android.support.test:runner:1.0.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile project(':lib.base')
-    compile project(':lib.config')
-    compile project(':lib.net')
-    compile project(':lib.router')
-    compile project(':lib.ui')
+
+    //单纯使用 compile 依赖库，则 lib 编译方式默认使用 release，想要lib根据我们配置的构建方式
+    //来构建，则使用一下方式添加 lib
+    releaseCompile project(path: ':lib.base', configuration: 'release')
+    debugCompile project(path: ':lib.base', configuration: 'debug')
+
+    releaseCompile project(path: ':lib.config', configuration: 'release')
+    debugCompile project(path: ':lib.config', configuration: 'debug')
+
+    releaseCompile project(path: ':lib.net', configuration: 'release')
+    debugCompile project(path: ':lib.net', configuration: 'debug')
+
+    releaseCompile project(path:':lib.router', configuration: 'release')
+    debugCompile project(path:':lib.router', configuration: 'debug')
+
+    releaseCompile project(path:':lib.ui', configuration: 'release')
+    debugCompile project(path:':lib.ui', configuration: 'debug')
+
+    releaseCompile project(path:':lib.utils', configuration: 'release')
+    debugCompile project(path:':lib.utils', configuration: 'debug')
+
 }
