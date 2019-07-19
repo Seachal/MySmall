@@ -9,4 +9,6 @@ public class AppConstant {
     public static final int MAX_CONNECT_TIME_OUT = 10;
     public static final int MAX_READ_TIME_OUT = 10;
     public static final int MAX_WRITE_TIME_OUT = 10;
+
+    public static final String BASE_HOST = "https://www.baidu.com/";
 }

@@ -8,6 +8,7 @@ import com.laka.libnet.intercepter.AuthorizationInterceptor;
 import com.laka.libnet.intercepter.LoggingInterceptor;
 import com.laka.libnet.intercepter.NetWorkInterceptor;
 import com.laka.libnet.utils.GsonUtils;
+import com.laka.libutils.app.ApplicationUtils;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -26,6 +27,7 @@ public class RetrofitHelper {
 
     private Context context;
     private Retrofit mRetrofit;
+    private static ApiService mApiService;
 
     /**
      * description:常规参数配置
@@ -34,6 +36,17 @@ public class RetrofitHelper {
     private boolean isAuthorRequest = false;
     private boolean isNetWorkInterceptor = false;
     private boolean isGlobalParamsInterceptor = false;
+
+    public static ApiService getApiService() {
+        if (mApiService == null) {
+            synchronized (RetrofitHelper.class) {
+                if (mApiService == null) {
+                    mApiService = createApiService();
+                }
+            }
+        }
+        return mApiService;
+    }
 
     private RetrofitHelper(Builder builder) {
         this.context = builder.context;
@@ -81,6 +94,19 @@ public class RetrofitHelper {
     }
 
     /**
+     * 创建ApiService对象
+     */
+    private static ApiService createApiService() {
+        return new Builder(ApplicationUtils.getApplication())
+                .setAuthorRequest(true)
+                .setNetWorkInterceptor(true)
+                .setGlobalParamsInterceptor(true)
+                .setRequestHost(AppConstant.BASE_HOST)
+                .build()
+                .create(ApiService.class);
+    }
+
+    /**
      * 通过create函数获取到具体的Service
      *
      * @param reqServer
@@ -91,15 +117,12 @@ public class RetrofitHelper {
         return mRetrofit.create(reqServer);
     }
 
-
     public static class Builder {
-
         private boolean isAuthorRequest = false;
         private boolean isNetWorkInterceptor = false;
         private boolean isGlobalParamsInterceptor = true;
         private String requestHost = "";
         private Context context;
-
         public Builder(Context context) {
             this.context = context;
         }
