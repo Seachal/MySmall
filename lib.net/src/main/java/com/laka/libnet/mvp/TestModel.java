@@ -1,5 +1,6 @@
 package com.laka.libnet.mvp;
 
+import com.laka.libnet.constract.TestConstract;
 import com.laka.libnet.mvp.model.BaseModel;
 import com.laka.libnet.mvp.model.IBaseModel;
 import com.laka.libnet.rx.RetrofitHelper;
@@ -19,7 +20,7 @@ import io.reactivex.functions.Consumer;
  * @Date:2019/7/19
  * @Description:
  */
-public class TestModel extends BaseModel implements IBaseModel {
+public class TestModel extends BaseModel implements TestConstract.TestModel {
 
     public void getUserInfo(HashMap<String, String> params, ResponseCallBack<String> callBack) {
         doBaseRequest(RetrofitHelper.getApiService().onTest(params), callBack);
