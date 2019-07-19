@@ -151,4 +151,31 @@ public class RetrofitHelper {
             return new RetrofitHelper(this);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RetrofitHelper)) return false;
+
+        RetrofitHelper that = (RetrofitHelper) o;
+
+        if (isAuthorRequest != that.isAuthorRequest) return false;
+        if (isNetWorkInterceptor != that.isNetWorkInterceptor) return false;
+        if (isGlobalParamsInterceptor != that.isGlobalParamsInterceptor) return false;
+        if (context != null ? !context.equals(that.context) : that.context != null) return false;
+        if (mRetrofit != null ? !mRetrofit.equals(that.mRetrofit) : that.mRetrofit != null)
+            return false;
+        return HOST != null ? HOST.equals(that.HOST) : that.HOST == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = context != null ? context.hashCode() : 0;
+        result = 31 * result + (mRetrofit != null ? mRetrofit.hashCode() : 0);
+        result = 31 * result + (HOST != null ? HOST.hashCode() : 0);
+        result = 31 * result + (isAuthorRequest ? 1 : 0);
+        result = 31 * result + (isNetWorkInterceptor ? 1 : 0);
+        result = 31 * result + (isGlobalParamsInterceptor ? 1 : 0);
+        return result;
+    }
 }
