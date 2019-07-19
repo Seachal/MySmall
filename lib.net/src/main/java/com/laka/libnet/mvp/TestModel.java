@@ -1,5 +1,7 @@
-package com.laka.libnet.mvp.model;
+package com.laka.libnet.mvp;
 
+import com.laka.libnet.mvp.model.BaseModel;
+import com.laka.libnet.mvp.model.IBaseModel;
 import com.laka.libnet.rx.RetrofitHelper;
 import com.laka.libnet.rx.callback.ResponseCallBack;
 import com.laka.libutils.LogUtils;
@@ -17,7 +19,7 @@ import io.reactivex.functions.Consumer;
  * @Date:2019/7/19
  * @Description:
  */
-public class TestModel extends BaseNetModelImpl {
+public class TestModel extends BaseModel implements IBaseModel {
 
     public void getUserInfo(HashMap<String, String> params, ResponseCallBack<String> callBack) {
         doBaseRequest(RetrofitHelper.getApiService().onTest(params), callBack);

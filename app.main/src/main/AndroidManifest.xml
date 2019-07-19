@@ -20,7 +20,6 @@
         <activity android:name=".MessageActivity">
 
         </activity>
-        <activity android:name="com.laka.appglide.GlideActivity" />
         <activity android:name=".TestMainActivity">
 
         </activity>

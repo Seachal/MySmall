@@ -2,6 +2,7 @@ package com.laka.libnet.mvp.model;
 
 import android.support.annotation.NonNull;
 
+import com.laka.libnet.mvp.ILifecycle;
 import com.laka.libnet.rx.scriber.RxSchedulerComposer;
 import com.laka.libnet.rx.scriber.RxSubscriber;
 import com.laka.libnet.rx.callback.ResponseCallBack;
@@ -18,11 +19,8 @@ import io.reactivex.subjects.BehaviorSubject;
  * @Date:2019/7/19
  * @Description:
  */
-public class BaseNetModelImpl implements INetModel<ActivityEvent> {
+public abstract class BaseModel implements ILifecycle<ActivityEvent> {
 
-    private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();
-
-    @Override
     public <T> void doBaseRequest(Observable<T> observable, ResponseCallBack<T> callBack) {
         observable.compose(RxSchedulerComposer.normalSchedulersTransformer())
                 .compose(bindUntilEvent(ActivityEvent.DESTROY))

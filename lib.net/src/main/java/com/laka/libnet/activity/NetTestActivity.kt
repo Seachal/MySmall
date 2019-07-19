@@ -3,7 +3,7 @@ package com.laka.libnet.activity
 import android.os.Bundle
 import android.view.View
 import com.laka.libnet.R
-import com.laka.libnet.mvp.model.TestModel
+import com.laka.libnet.mvp.TestModel
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
 /**

@@ -9,7 +9,6 @@ import com.laka.librouter.utils.IntentUtils
 import com.laka.libutils.LogUtils
 import com.laka.libutils.app.ApplicationUtils
 import com.orhanobut.logger.Logger
-import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * @Author:summer

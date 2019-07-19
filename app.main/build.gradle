@@ -76,4 +76,5 @@ dependencies {
     compile project(':lib.router')
     compile project(':lib.ui')
     compile project(':lib.utils')
+    implementation project(':lib.net')
 }
