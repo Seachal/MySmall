@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -54,4 +55,8 @@ dependencies {
     compile rootProject.ext.dependencies["RxLifeCycleAndroid"]
     compile rootProject.ext.dependencies["RxLifeCycleComponents"]
     compile project(':lib.utils')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

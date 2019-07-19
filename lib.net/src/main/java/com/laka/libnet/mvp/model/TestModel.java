@@ -1,6 +1,5 @@
-package com.laka.libnet.model;
+package com.laka.libnet.mvp.model;
 
-import com.laka.libnet.model.impl.BaseNetModelImpl;
 import com.laka.libnet.rx.RetrofitHelper;
 import com.laka.libnet.rx.callback.ResponseCallBack;
 import com.laka.libutils.LogUtils;

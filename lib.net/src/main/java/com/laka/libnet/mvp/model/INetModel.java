@@ -1,16 +1,8 @@
-package com.laka.libnet.model;
+package com.laka.libnet.mvp.model;
 
-
-import android.os.Bundle;
-import android.support.annotation.CallSuper;
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.laka.libnet.rx.callback.ResponseCallBack;
 import com.trello.rxlifecycle2.LifecycleProvider;
-import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.trello.rxlifecycle2.android.ActivityEvent;
 
 import io.reactivex.Observable;
 

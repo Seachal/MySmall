@@ -2,6 +2,7 @@ package com.laka.appuser
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_setting.*
 
 /**
  * @Author:summer

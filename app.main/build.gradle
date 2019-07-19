@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -54,6 +55,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //单纯使用 compile 依赖库，则 lib 编译方式默认使用 release，想要lib根据我们配置的构建方式
     //来构建，则使用一下方式添加 lib
     //由于 small 的兼容性问题，无法使用一下方式来构建
@@ -71,7 +73,6 @@ dependencies {
     //    debugCompile project(path:':lib.utils', configuration: 'debug')
     compile project(':lib.base')
     compile project(':lib.config')
-    compile project(':lib.net')
     compile project(':lib.router')
     compile project(':lib.ui')
     compile project(':lib.utils')

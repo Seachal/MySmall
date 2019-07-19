@@ -1,8 +1,7 @@
-package com.laka.libnet.model.impl;
+package com.laka.libnet.mvp.model;
 
 import android.support.annotation.NonNull;
 
-import com.laka.libnet.model.INetModel;
 import com.laka.libnet.rx.scriber.RxSchedulerComposer;
 import com.laka.libnet.rx.scriber.RxSubscriber;
 import com.laka.libnet.rx.callback.ResponseCallBack;

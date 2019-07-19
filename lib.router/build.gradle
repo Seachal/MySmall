@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
 
@@ -39,4 +40,8 @@ dependencies {
     compile rootProject.ext.dependencies["appcompat-v7"]
 
     compile project(':lib.utils')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
