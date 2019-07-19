@@ -51,5 +51,7 @@ dependencies {
     compile rootProject.ext.dependencies["RxJava"]
     compile rootProject.ext.dependencies["RxAndroid"]
     compile rootProject.ext.dependencies["RxLifeCycle"]
+    compile rootProject.ext.dependencies["RxLifeCycleAndroid"]
     compile rootProject.ext.dependencies["RxLifeCycleComponents"]
+    compile project(':lib.utils')
 }

@@ -76,12 +76,9 @@ public final class ApplicationUtils {
     /**
      * 初始化debug状态
      */
-    public static void initDebug() {
+    public static void initDebug(boolean debug) {
         if (verticallyIsInit()) {
-            if (sDebug == null) {
-                sDebug = sApplication.getApplicationInfo() != null &&
-                        (sApplication.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-            }
+            sDebug = debug;
         }
     }
 

@@ -75,7 +75,8 @@ project.ext {
             //rx
             "RxJava"                     : "io.reactivex.rxjava2:rxjava:${RxJava}",
             "RxAndroid"                  : "io.reactivex.rxjava2:rxandroid:${RxAndroid}",
-            "RxLifeCycle"                : "com.trello.rxlifecycle2:rxlifecycle-android:${RxLifeCycle}",
+            "RxLifeCycle"                : "com.trello.rxlifecycle2:rxlifecycle:${RxLifeCycle}",
+            "RxLifeCycleAndroid"         : "com.trello.rxlifecycle2:rxlifecycle-android:${RxLifeCycle}",
             "RxLifeCycleComponents"      : "com.trello.rxlifecycle2:rxlifecycle-components:${RxLifeCycle}",
             "RxCache"                    : "com.github.VictorAlbertos.RxCache:runtime:1.8.1-2.x",
             "RxCacheConvert"             : "com.github.VictorAlbertos.Jolyglot:gson:${RxCacheConvert}",

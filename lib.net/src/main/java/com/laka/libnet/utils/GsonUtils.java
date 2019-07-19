@@ -6,7 +6,7 @@ import com.google.gson.InstanceCreator;
 import com.google.gson.internal.ConstructorConstructor;
 import com.laka.libnet.anno.AnnotationExclusion;
 import com.laka.libnet.gson.factory.CollectionDefaultTypeAdapterFactory;
-import com.laka.libnet.gson.adapter.GsonFormatTypeAdapter;
+import com.laka.libnet.gson.factory.GsonFormatTypeAdapterFactory;
 import com.laka.libnet.gson.factory.DeserializeActionAdapterFactory;
 
 import org.json.JSONObject;
@@ -35,7 +35,7 @@ public class GsonUtils implements IParseUtil {
      **/
     static {
         GsonBuilder gsonBuilder = new GsonBuilder()
-                .registerTypeAdapterFactory(new GsonFormatTypeAdapter())
+                .registerTypeAdapterFactory(new GsonFormatTypeAdapterFactory())
                 .registerTypeAdapterFactory(new DeserializeActionAdapterFactory())
                 .setExclusionStrategies(new AnnotationExclusion())
                 .addSerializationExclusionStrategy(new AnnotationExclusion())

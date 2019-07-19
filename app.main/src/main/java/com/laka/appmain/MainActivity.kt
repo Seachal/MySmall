@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 val value = IntentUtils.getStringExtra(intent, "key", "defaultValue")
                 LogUtils.info("value1------:$value-----:${BuildConfig.DEBUG}")
                 Log.i("value", "value2------$value--------:${BuildConfig.DEBUG}")
-                if (ApplicationUtils.isDebug2(this)) {
+                if (ApplicationUtils.isDebug()) {
                     Logger.i("value3------:$value-----:${BuildConfig.DEBUG}")
                     Logger.i("value4------:$value-----:${BuildConfig.DEBUG}")
                 }

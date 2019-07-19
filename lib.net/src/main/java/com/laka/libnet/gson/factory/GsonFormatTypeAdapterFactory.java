@@ -1,16 +1,22 @@
-package com.laka.libnet.gson.adapter;
+package com.laka.libnet.gson.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.laka.libnet.gson.adapter.BooleanDefaultFormatAdapter;
+import com.laka.libnet.gson.adapter.DoubleDefaultFormatAdapter;
+import com.laka.libnet.gson.adapter.FloatDefaultFormatAdapter;
+import com.laka.libnet.gson.adapter.IntegerDefaultFormatAdapter;
+import com.laka.libnet.gson.adapter.LongDefaultFormatAdapter;
+import com.laka.libnet.gson.adapter.StringDefaultFormatAdapter;
 
 /**
  * @Author:summer
  * @Date:2019/7/16
  * @Description:GSON针对后端Number字段,String字段，null转换工厂类
  */
-public class GsonFormatTypeAdapter implements TypeAdapterFactory {
+public class GsonFormatTypeAdapterFactory implements TypeAdapterFactory {
 
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
