@@ -41,6 +41,7 @@ dependencies {
     compile rootProject.ext.dependencies["ConstraintLayout"]
     annotationProcessor rootProject.ext.dependencies["glideCompiler"]
     compile rootProject.ext.dependencies["glide"]
+    compile rootProject.ext.dependencies["RoundedImageView"]
 
     compile project(':lib.utils')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

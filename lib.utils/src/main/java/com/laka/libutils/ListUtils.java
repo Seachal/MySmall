@@ -15,6 +15,16 @@ public class ListUtils {
     }
 
     /**
+     * 防止数据越界
+     * */
+    public static <T> T get(List<T> list, int position) {
+        if (position >= 0 && position < list.size()) {
+            return list.get(position);
+        }
+        return null;
+    }
+
+    /**
      * 判断List是否为空
      */
     public static boolean isNotEmpty(Collection<?> list) {

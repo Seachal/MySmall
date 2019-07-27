@@ -139,4 +139,10 @@
             <enum name="mirror" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="FlowNode">
+        <attr name="bgColor" format="color" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
 </resources>
