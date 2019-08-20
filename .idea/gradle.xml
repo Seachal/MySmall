@@ -10,6 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app.detail" />
+            <option value="$PROJECT_DIR$/app.disignui" />
+            <option value="$PROJECT_DIR$/app.kotlin" />
             <option value="$PROJECT_DIR$/app.main" />
             <option value="$PROJECT_DIR$/app.user" />
             <option value="$PROJECT_DIR$/gradle-plugin" />
