@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-android {
 
+android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
         applicationId "com.laka.mysmall"
         minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion  rootProject.ext.android.targetSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -46,6 +46,113 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //多渠道配置，
+//    flavorDimensions "size", "color"
+//    productFlavors {
+//        big {
+//            dimension "size"
+//        }
+//        middle {
+//            dimension "size"
+//        }
+//        small {
+//            dimension "size"
+//        }
+//
+//        blue {
+//            dimension "color"
+//        }
+//        green {
+//            dimension "color"
+//        }
+//        gray {
+//            dimension "color"
+//        }
+//        red1 {
+//            dimension "color"
+//        }
+//        red2 {
+//            dimension "color"
+//        }
+//        red3 {
+//            dimension "color"
+//        }
+//        red4 {
+//            dimension "color"
+//        }
+//        red5 {
+//            dimension "color"
+//        }
+//        red6 {
+//            dimension "color"
+//        }
+//        red7 {
+//            dimension "color"
+//        }
+//        red8 {
+//            dimension "color"
+//        }
+//        red9 {
+//            dimension "color"
+//        }
+//        red10 {
+//            dimension "color"
+//        }
+//    }
+
+
+//    gradle 在构建过程中，会提供一些列回调接口，方便在不同的阶段做一些事情，主要的接口有下面几个
+//    gradle.addBuildListener(new BuildListener() {
+//        @Override
+//        void buildStarted(Gradle gradle) {
+//            // 这个回调一般不会调用，因为我们注册的时机太晚，
+//            // 注册的时候构建已经开始了，是 gradle 内部使用的
+//            println('构建开始')
+//        }
+//
+//        @Override
+//        void settingsEvaluated(Settings settings) {
+//            println('settings 文件解析完成')
+//        }
+//
+//        @Override
+//        void projectsLoaded(Gradle gradle) {
+//            println('项目加载完成')
+//            gradle.rootProject.subprojects.each { pro ->
+//                pro.beforeEvaluate {
+//                    println("${pro.name} 项目配置之前调用")
+//                }
+//                pro.afterEvaluate{
+//                    println("${pro.name} 项目配置之后调用")
+//                }
+//            }
+//        }
+//
+//        @Override
+//        void projectsEvaluated(Gradle gradle) {
+//            println('项目解析完成')
+//        }
+//
+//        @Override
+//        void buildFinished(BuildResult result) {
+//            println('构建完成')
+//        }
+//    })
+//    gradle.taskGraph.whenReady {
+//        println("task 图构建完成")
+//    }
+//    gradle.taskGraph.beforeTask {
+//        println("每个 task 执行前会调这个接口")
+//    }
+//    gradle.taskGraph.afterTask {
+//        println("每个 task 执行完成会调这个接口")
+//    }
+
+}
+
+def doSomething() {
+    return 1010
 }
 
 dependencies {
@@ -55,6 +162,7 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     compile project(':lib.ui')
+    compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-RC'
 }
 repositories {
     mavenCentral()

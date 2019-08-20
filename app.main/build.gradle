@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'myplugin'
+
 android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -49,6 +51,18 @@ android {
         }
     }
 
+}
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        //自定义插件
+        classpath 'com.xhh.plugin:myplugin:0.0.1'
+    }
 }
 
 dependencies {
