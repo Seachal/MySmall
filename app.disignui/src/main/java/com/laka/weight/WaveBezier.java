@@ -78,6 +78,7 @@ public class WaveBezier extends View implements View.OnClickListener {
     public void onClick(View view) {
         ValueAnimator animator = ValueAnimator.ofInt(0, mWaveLength);
         animator.setDuration(1000);
+        animator.setRepeatMode(ValueAnimator.RESTART);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.setInterpolator(new LinearInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
