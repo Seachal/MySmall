@@ -70,6 +70,7 @@ public class PathBezier extends View implements View.OnClickListener {
         mPath.quadTo(mControlPointX, mControlPointY, mEndPointX, mEndPointY);
         canvas.drawPath(mPath, mPathPaint);
         canvas.drawCircle(mMovePointX, mMovePointY, 30, mCirclePaint);
+
     }
 
     @Override

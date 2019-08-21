@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.laka.appdisignui.MainActivity">
 
-    <com.laka.weight.PathBezier
+    <com.laka.weight.MetaMallView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
