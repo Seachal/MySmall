@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://C:\android\source\module\MySmall\gradle-plugin\GradleDemo.iml" filepath="C:\android\source\module\MySmall\gradle-plugin\GradleDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/MySmall.iml" filepath="$PROJECT_DIR$/MySmall.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.detail/app.detail.iml" filepath="$PROJECT_DIR$/app.detail/app.detail.iml" />
@@ -9,7 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/app.kotlin/app.kotlin.iml" filepath="$PROJECT_DIR$/app.kotlin/app.kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.main/app.main.iml" filepath="$PROJECT_DIR$/app.main/app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.user/app.user.iml" filepath="$PROJECT_DIR$/app.user/app.user.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" filepath="$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.base/lib.base.iml" filepath="$PROJECT_DIR$/lib.base/lib.base.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.config/lib.config.iml" filepath="$PROJECT_DIR$/lib.config/lib.config.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib.net/lib.net.iml" filepath="$PROJECT_DIR$/lib.net/lib.net.iml" />

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+    <declare-styleable name="PagerListTab">
+        <attr name="tab_left_txt" format="string" />
+        <attr name="tab_right_txt" format="string" />
+        <attr name="tab_txt_size" format="dimension"/>
+    </declare-styleable>
+
     <!-- 系统通用属性 -->
     <!-- 文字加粗 -->
     <attr name="bold" format="boolean" />
