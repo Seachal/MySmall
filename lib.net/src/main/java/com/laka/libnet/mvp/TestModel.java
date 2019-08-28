@@ -22,10 +22,9 @@ import io.reactivex.functions.Consumer;
  */
 public class TestModel extends BaseModel implements TestConstract.TestModel {
 
-    public void getUserInfo(HashMap<String, String> params, ResponseCallBack<String> callBack) {
-        doBaseRequest(RetrofitHelper.getApiService().onTest(params), callBack);
-    }
-
+    /**
+     * 测试生命周期绑定
+     * */
     public void onTest() {
         Observable.interval(1, TimeUnit.SECONDS)
                 .doOnDispose(new Action() {
@@ -42,5 +41,26 @@ public class TestModel extends BaseModel implements TestConstract.TestModel {
                     }
                 });
     }
+
+    public void getUserInfo(HashMap<String, String> params, ResponseCallBack<String> callBack) {
+        doBaseRequest(RetrofitHelper.getApiService().getUserInfo(params), callBack);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

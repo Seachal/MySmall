@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app.detail" />
             <option value="$PROJECT_DIR$/app.disignui" />
+            <option value="$PROJECT_DIR$/app.java" />
             <option value="$PROJECT_DIR$/app.kotlin" />
             <option value="$PROJECT_DIR$/app.main" />
             <option value="$PROJECT_DIR$/app.user" />
@@ -24,6 +25,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>

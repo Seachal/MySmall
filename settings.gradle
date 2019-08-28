@@ -1,1 +1,1 @@
-include ':app', ':app.main', ':app.user', ':lib.base', ':lib.utils', ':lib.router', ':lib.config', ':lib.net', ':lib.ui', ':app.detail', ':gradle-plugin', ':app.kotlin', ':app.disignui'
+include ':app', ':app.main', ':app.user', ':lib.base', ':lib.utils', ':lib.router', ':lib.config', ':lib.net', ':lib.ui', ':app.detail', ':gradle-plugin', ':app.kotlin', ':app.disignui', ':app.java'

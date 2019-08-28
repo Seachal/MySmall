@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\android\source\module\MySmall\gradle-plugin\GradleDemo.iml" filepath="C:\android\source\module\MySmall\gradle-plugin\GradleDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" filepath="$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/MySmall.iml" filepath="$PROJECT_DIR$/MySmall.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.detail/app.detail.iml" filepath="$PROJECT_DIR$/app.detail/app.detail.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.disignui/app.disignui.iml" filepath="$PROJECT_DIR$/app.disignui/app.disignui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app.java/app.java.iml" filepath="$PROJECT_DIR$/app.java/app.java.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.kotlin/app.kotlin.iml" filepath="$PROJECT_DIR$/app.kotlin/app.kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.main/app.main.iml" filepath="$PROJECT_DIR$/app.main/app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.user/app.user.iml" filepath="$PROJECT_DIR$/app.user/app.user.iml" />

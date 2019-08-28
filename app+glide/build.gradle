@@ -18,7 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    //提供非 release 外的构建模式
+    //提供非 release 外的构建模式0
     publishNonDefault true
 
 }

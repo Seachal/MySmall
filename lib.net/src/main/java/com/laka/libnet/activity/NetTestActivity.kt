@@ -3,7 +3,10 @@ package com.laka.libnet.activity
 import android.os.Bundle
 import android.view.View
 import com.laka.libnet.R
+import com.laka.libnet.exception.BaseException
 import com.laka.libnet.mvp.TestModel
+import com.laka.libnet.rx.callback.ResponseCallBack
+import com.laka.libutils.LogUtils
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
 /**
@@ -65,17 +68,18 @@ class NetTestActivity : RxAppCompatActivity() {
 //                    LogUtils.info("Started in onCreate(), running until in onDestroy()")
 //                }
 //
-//        TestModel().getUserInfo(HashMap(), object : ResponseCallBack<String> {
-//            override fun onSuccess(t: String) {
-//                LogUtils.info("")
-//            }
-//
-//            override fun onFail(e: BaseException?) {
-//                LogUtils.info("${e?.message}")
-//            }
-//        })
 
-        mTestModel.onTest()
+        TestModel().getUserInfo(HashMap(), object : ResponseCallBack<String> {
+            override fun onSuccess(t: String) {
+                LogUtils.info("$t")
+            }
+
+            override fun onFail(e: BaseException?) {
+                LogUtils.info("${e?.message}")
+            }
+        })
+
+//        mTestModel.onTest()
 
     }
 
