@@ -162,7 +162,7 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     compile project(':lib.ui')
-    compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0-RC'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2'
 }
 repositories {
     mavenCentral()

@@ -69,15 +69,15 @@ class NetTestActivity : RxAppCompatActivity() {
 //                }
 //
 
-        TestModel().getUserInfo(HashMap(), object : ResponseCallBack<String> {
-            override fun onSuccess(t: String) {
-                LogUtils.info("$t")
-            }
-
-            override fun onFail(e: BaseException?) {
-                LogUtils.info("${e?.message}")
-            }
-        })
+//        TestModel().getUserInfo(HashMap(), object : ResponseCallBack<String> {
+//            override fun onSuccess(t: String) {
+//                LogUtils.info("$t")
+//            }
+//
+//            override fun onFail(e: BaseException?) {
+//                LogUtils.info("${e?.message}")
+//            }
+//        })
 
 //        mTestModel.onTest()
 

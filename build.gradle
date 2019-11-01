@@ -10,7 +10,7 @@ apply from: "dependencies.gradle"
  * allprojects：子项目的配置，子项目配置中的 repositories ，指的是子项目配置的仓库，一般跟整体项目配置的仓库地址是一样的
  * */
 buildscript {
-    ext.kotlin_version = '1.3.21'
+    ext.kotlin_version = '1.3.50'
     ext.navigationVersion = "2.0.0"
     repositories {
         google()
