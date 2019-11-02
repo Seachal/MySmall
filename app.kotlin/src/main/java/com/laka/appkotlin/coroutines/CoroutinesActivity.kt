@@ -1,19 +1,14 @@
 package com.laka.appkotlin.coroutines
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.laka.appkotlin.R
-import com.laka.appkotlin.dsl.test3
-import com.laka.appkotlin.dsl.test4
 import com.laka.libutils.LogUtils
 import com.laka.libutils.toast.ToastHelper
 import kotlinx.coroutines.*
 import okhttp3.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
-import kotlin.coroutines.CoroutineContext
 
 class CoroutinesActivity : AppCompatActivity() {
 
@@ -24,13 +19,23 @@ class CoroutinesActivity : AppCompatActivity() {
     }
 
     private fun initData() {
+        apply { }
         GlobalScope().launch(Dispatchers.Main) {
             //使用了协程，以下的都是常规的异步方法，却可以当做同步来调用
             //getBaiduData()
+            LogUtils.info("coroutine-----start")
+            delayTime()
             downloadImage()
             getUserInfo()
             LogUtils.info("coroutine-----end")
         }
+    }
+
+    private suspend fun delayTime() {
+        LogUtils.info("coroutine-----等待一秒钟前的逻辑")
+        delay(1000) //系统挂起函数，等待一点时间再往下走
+        //一秒钟后往下走
+        LogUtils.info("coroutine-----等待一秒钟后的逻辑")
     }
 
     //suspend：挂起 ，修饰的函数称为挂起函数，必须由协程或者其他的挂起函数来调用

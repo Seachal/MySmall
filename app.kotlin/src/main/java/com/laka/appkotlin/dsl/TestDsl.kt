@@ -1,6 +1,9 @@
 package com.laka.appkotlin.dsl
 
+import android.animation.AnimatorSet
 import android.text.TextUtils
+import android.view.animation.AnimationSet
+import android.view.animation.AnimationUtils
 
 /**
  * @Author:summer
@@ -49,4 +52,29 @@ infix fun String.sha(arg: String) {
 inline fun test4(block: (String) -> Unit) {
 
 }
+
+
+fun animSet(block: AnimatorSet.() -> Unit) {
+    block.invoke(AnimatorSet())
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
