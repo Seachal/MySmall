@@ -19,9 +19,8 @@ class DslActivity:AppCompatActivity() {
 
     private fun initAnim() {
         animSet {
-
             duration = 1500
-
         }
     }
+
 }

@@ -12,6 +12,8 @@ import java.util.concurrent.TimeUnit
 
 class CoroutinesActivity : AppCompatActivity() {
 
+    private var mMainScope = MainScope()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coroutines)
@@ -19,16 +21,33 @@ class CoroutinesActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        apply { }
-        GlobalScope().launch(Dispatchers.Main) {
-            //使用了协程，以下的都是常规的异步方法，却可以当做同步来调用
-            //getBaiduData()
-            LogUtils.info("coroutine-----start")
-            delayTime()
-            downloadImage()
-            getUserInfo()
-            LogUtils.info("coroutine-----end")
+        //1、GlobalScope() 启动协程
+        //返回一个 JOB ，需要在activity onDestroy中销毁，否则会出现内存泄漏
+//        val job = GlobalScope().launch(Dispatchers.Main) {
+//            //使用了协程，以下的都是常规的异步方法，却可以当做同步来调用
+//            //getBaiduData()
+//            LogUtils.info("coroutine-----start")
+//            delayTime()
+//            downloadImage()
+//            getUserInfo()
+//            LogUtils.info("coroutine-----end")
+//        }
+
+        //2、rxjava配合协程调用
+        //CoroutinesModel().getUserInfo()
+
+        //3、MainScope启动协程
+        mMainScope.launch(Dispatchers.Main) {
+            val result = getHomeInfo()
+            LogUtils.info("coroutine-----response----$result")
         }
+    }
+
+    private suspend fun getHomeInfo(): String = withContext(Dispatchers.IO) {
+        LogUtils.info("coroutine-----开始睡眠前")
+        Thread.sleep(1000)
+        LogUtils.info("coroutine-----mainScope方式启动协程")
+        return@withContext "return homeInfo"
     }
 
     private suspend fun delayTime() {
@@ -78,6 +97,12 @@ class CoroutinesActivity : AppCompatActivity() {
         repeat(10) {
             println("协程执行.....$it")
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //清除所有改mainScope开启的协程
+        mMainScope.cancel()
     }
 
 
