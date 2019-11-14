@@ -16,10 +16,19 @@ buildscript {
         google()
         jcenter()
         mavenLocal()
+        maven {
+            url 'https://maven.google.com/'
+        }
+        //maven引入本地插件目录
+        maven {
+            url uri("GradlePlugin/repo")
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //引入插件
+        classpath "com.xhh.plugin:MyPlugin:1.0.0"
 //        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
     }
 

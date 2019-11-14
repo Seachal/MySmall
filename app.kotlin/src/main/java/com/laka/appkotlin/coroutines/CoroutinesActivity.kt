@@ -37,10 +37,10 @@ class CoroutinesActivity : AppCompatActivity() {
         //CoroutinesModel().getUserInfo()
 
         //3、MainScope启动协程
-        mMainScope.launch(Dispatchers.Main) {
-            val result = getHomeInfo()
-            LogUtils.info("coroutine-----response----$result")
-        }
+//        mMainScope.launch(Dispatchers.Main) {
+//            val result = getHomeInfo()
+//            LogUtils.info("coroutine-----response----$result")
+//        }
     }
 
     private suspend fun getHomeInfo(): String = withContext(Dispatchers.IO) {

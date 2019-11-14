@@ -3,11 +3,8 @@ package com.laka.appkotlin.coroutines.model
 import com.laka.appkotlin.coroutines.GlobalScope
 import com.laka.appkotlin.coroutines.constract.CoroutinesConstract
 import com.laka.libnet.constant.AppConstant
-import com.laka.libnet.converter.JsonConverterFactory
-import com.laka.libnet.gson.factory.GsonFormatTypeAdapterFactory
 import com.laka.libnet.intercepter.LoggingInterceptor
 import com.laka.libnet.mvp.model.BaseModel
-import com.laka.libnet.utils.GsonUtils
 import com.laka.libutils.LogUtils
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
