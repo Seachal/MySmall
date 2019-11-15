@@ -29,24 +29,45 @@ class MyTransform extends Transform {
 
     @Override
     String getName() {
-        return "MyTransform"
+        return "ModifyTransform"
     }
 
+    /**
+     * ContentType，数据类型，有 CLASSES 和 RESOURCES 两种。
+     * 其中的 CLASSES 包含了源项目中的 .class 文件和第三方库中的 .class 文件。
+     * RESOURCES 仅包含源项目中的 .class 文件。
+     * 对应 getInputTypes() 方法。
+     * */
     @Override
     Set<QualifiedContent.ContentType> getInputTypes() {
         return TransformManager.CONTENT_CLASS
     }
 
+    /**
+     * Scope，表示要处理的 .class 文件的范围，主要有
+     * PROJECT， SUB_PROJECTS，EXTERNAL_LIBRARIES（外部库）等。
+     * 对应 getScopes() 方法。
+     * */
     @Override
     Set<? super QualifiedContent.Scope> getScopes() {
         return TransformManager.SCOPE_FULL_PROJECT
     }
 
+    /**
+     * 是否支持增量编译
+     * true : 支持增量编译，clean 后首次编译属于非增量编译，往后的编译，如果代码有修改，则属于增量编译，插件task会参与到编译中，
+     * 如果没有修改任何文件，则属于非增量编译，此时的编译器会自动跳过支持增量编译的插件的task
+     * （增量的时间缩短为全量的速度提升了3倍多，而且这个速度优化会随着工程的变大而更加显著）
+     * false :不知道增量编译，无论代码文件是否有修改，都会走
+     * */
     @Override
     boolean isIncremental() {
         return false
     }
 
+    /**
+     * 编译项目的时候会在 build 面板中打印这里的日志
+     * */
     @Override
     void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
         super.transform(transformInvocation)
@@ -57,25 +78,32 @@ class MyTransform extends Transform {
 
         transformInvocation.inputs.each {
 
-            it.jarInputs.each {
+            it.jarInputs.each { //遍历项目中导入的jar包
+                // it 为 JarInput 类型
+                println "it jarInputs path :${it.file.absolutePath}"
                 pool.insertClassPath(it.file.absolutePath)
 
                 // 重命名输出文件（同目录copyFile会冲突）
-                def jarName = it.name
-                def md5Name = DigestUtils.md5Hex(it.file.getAbsolutePath())
+                def jarName = it.name //jar 包的名称
+                def md5Name = DigestUtils.md5Hex(it.file.absolutePath)
                 if (jarName.endsWith(".jar")) {
                     jarName = jarName.substring(0, jarName.length() - 4)
                 }
                 def dest = transformInvocation.outputProvider.getContentLocation(
                         jarName + md5Name, it.contentTypes, it.scopes, Format.JAR)
+
+                println "new jar name :${jarName + md5Name}"
+                println "dest absolutePath: ${dest.absolutePath}"
+
                 FileUtils.copyFile(it.file, dest)
             }
 
 
-            it.directoryInputs.each {
+            it.directoryInputs.each { //遍历项目中的的字节码文件
+                println "directory inputs path : ${it.file.absolutePath}"
                 def preFileName = it.file.absolutePath
                 pool.insertClassPath(preFileName)
-
+                //查找目标file
                 findTarget(it.file, preFileName)
 
                 // 获取output目录
@@ -93,6 +121,9 @@ class MyTransform extends Transform {
         }
     }
 
+    /**
+     * 递归遍历class文件目录，不过 fileName 一直为根目录
+     * */
     private void findTarget(File dir, String fileName) {
         if (dir.isDirectory()) {
             dir.listFiles().each {
@@ -104,6 +135,9 @@ class MyTransform extends Transform {
     }
 
     private void modify(File dir, String fileName) {
+        println "修改class文件的 fileName :$fileName"
+        println "修改class文件的 absolutePath :${dir.absolutePath}"
+
         def filePath = dir.absolutePath
 
         if (!filePath.endsWith(SdkConstants.DOT_CLASS)) {
@@ -114,23 +148,32 @@ class MyTransform extends Transform {
             return
         }
 
+        // filePath : C:\android\source\github\javassist\app\build\intermediates\classes\debug\com\zw\yzk\sample\javassist\MainActivity$1.class
+        // fileName : C:\android\source\github\javassist\app\build\intermediates\classes\debug
         def className = filePath.replace(fileName, "")
                 .replace("\\", ".")
                 .replace("/", ".")
+        // name ：com.zw.yzk.sample.javassist.MainActivity$1
+        // MainActivity$1 表示 MainActivity 的第一个内部类
         def name = className.replace(SdkConstants.DOT_CLASS, "")
                 .substring(1)
 
+        println "className :$className ------ name:$name"
+
+        //获取class对象，下面是对class进行判断和修改
         CtClass ctClass = pool.get(name)
         CtClass[] interfaces = ctClass.getInterfaces()
-        if (interfaces.contains(pool.get(CLICK_LISTENER))) {
+        if (interfaces.contains(pool.get(CLICK_LISTENER))) { //判断该类是否实现了 View.OnClickListener 接口
             if (name.contains("\$")) {
                 println "class is inner class：" + ctClass.name
                 println "CtClass: " + ctClass
+                //获取外部类class对象
                 CtClass outer = pool.get(name.substring(0, name.indexOf("\$")))
-
+                //内部类通过对外部类的隐私应用获取外部类
                 CtField field = ctClass.getFields().find {
                     return it.type == outer
                 }
+                //内部类对外部类由引用的情况下才进行修改
                 if (field != null) {
                     println "fieldStr: " + field.name
                     def body = "android.widget.Toast.makeText(" + field.name + "," +
@@ -146,6 +189,9 @@ class MyTransform extends Transform {
         }
     }
 
+    /**
+     * 在目标方法尾部添加自定义代码
+     * */
     private void addCode(CtClass ctClass, String body, String fileName) {
 
         ctClass.defrost()
@@ -154,8 +200,8 @@ class MyTransform extends Transform {
 
         ctClass.writeFile(fileName)
         ctClass.detach()
+        //C:\android\source\github\javassist\app\build\intermediates\classes\debug\com.zw.yzk.sample.javassist.MainActivity$1
         println "write file: " + fileName + "\\" + ctClass.name
         println "modify method: " + method.name + " succeed"
     }
-
 }
