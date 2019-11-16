@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/GradlePlugin" />
+            <option value="$PROJECT_DIR$/MultiClickablePlugin" />
             <option value="$PROJECT_DIR$/androidjavassist" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app.detail" />

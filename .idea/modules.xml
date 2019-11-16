@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" filepath="$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/GradlePlugin/GradlePlugin.iml" filepath="$PROJECT_DIR$/GradlePlugin/GradlePlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MultiClickablePlugin/MultiClickablePlugin.iml" filepath="$PROJECT_DIR$/MultiClickablePlugin/MultiClickablePlugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/MySmall.iml" filepath="$PROJECT_DIR$/MySmall.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidjavassist/androidjavassist.iml" filepath="$PROJECT_DIR$/androidjavassist/androidjavassist.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />

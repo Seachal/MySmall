@@ -59,10 +59,16 @@ class MyTransform extends Transform {
      * 如果没有修改任何文件，则属于非增量编译，此时的编译器会自动跳过支持增量编译的插件的task
      * （增量的时间缩短为全量的速度提升了3倍多，而且这个速度优化会随着工程的变大而更加显著）
      * false :不知道增量编译，无论代码文件是否有修改，都会走
+     *
+     * 结论：1、一次编译对 Transform 来说是否是增量编译取决于两个方面：
+     * （1）、当前编译是否有增量基础；
+     * （2）、当前 Transform 是否开启增量编译。
+     *
+     * sp：经过测试发现 clean 后的第一次编译，transform 属于增量编译，如果transform 开启增量编译，则会走该 transformTask
      * */
     @Override
     boolean isIncremental() {
-        return false
+        return true
     }
 
     /**
@@ -71,6 +77,8 @@ class MyTransform extends Transform {
     @Override
     void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
         super.transform(transformInvocation)
+
+        isIncremental()
 
         project.android.bootClasspath.each {
             pool.appendClassPath(it.absolutePath)
