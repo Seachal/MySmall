@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AnotationProcess/AnotationProcess.iml" filepath="$PROJECT_DIR$/AnotationProcess/AnotationProcess.iml" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" filepath="$PROJECT_DIR$/gradle-plugin/GradleDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/GradlePlugin/GradlePlugin.iml" filepath="$PROJECT_DIR$/GradlePlugin/GradlePlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaAnotation/JavaAnotation.iml" filepath="$PROJECT_DIR$/JavaAnotation/JavaAnotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/MultiClickablePlugin/MultiClickablePlugin.iml" filepath="$PROJECT_DIR$/MultiClickablePlugin/MultiClickablePlugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/MySmall.iml" filepath="$PROJECT_DIR$/MySmall.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidjavassist/androidjavassist.iml" filepath="$PROJECT_DIR$/androidjavassist/androidjavassist.iml" />

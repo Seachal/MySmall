@@ -12,4 +12,5 @@ class MultiClickablePlugin implements Plugin<Project> {
     void apply(Project project) {
 
     }
+
 }

@@ -29,13 +29,14 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //引入插件
         classpath "com.xhh.plugin:MyPlugin:1.0.0"
         classpath "com.xhh.multiclickable:MultiClickablePlugin:1.0.0"
 //        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
     }
+
 
 }
 
